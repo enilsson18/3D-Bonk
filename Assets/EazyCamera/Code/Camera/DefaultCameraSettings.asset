@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49fa8fe2175259a43aab188776873c67, type: 3}
   m_Name: DefaultCameraSettings
   m_EditorClassIdentifier: 
-  OffsetHeight: 1
+  OffsetHeight: 2
   LateralOffset: 0
   MaxLateralOffset: 5
   OffsetDistance: 4.6666665
@@ -21,5 +21,5 @@ MonoBehaviour:
   ZoomSpeed: 10
   ResetSpeed: 15
   RotateSpeed: 15
-  MaxRotX: 89
-  MinRotX: -75
+  MaxRotX: 180
+  MinRotX: -180

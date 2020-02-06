@@ -77,7 +77,8 @@
     <Compile Include="Assets\EazyCamera\Code\StateMachine\CameraStates\EzStationaryState.cs" />
     <Compile Include="Assets\EazyCamera\Code\StateMachine\EzStateMachine.cs" />
     <Compile Include="Assets\EazyCamera\Code\Util\ExtensionMethods.cs" />
-    <Compile Include="Assets\code\PlayerMovement.cs" />
+    <Compile Include="Assets\code\Player.cs" />
+    <Compile Include="Assets\code\ThirdPersonCamera.cs" />
     <None Include="Assets\EazyCamera\README.txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/Erik/3D Bonk/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
