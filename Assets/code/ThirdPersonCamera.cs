@@ -4,167 +4,125 @@ using UnityEngine;
 
 public class ThirdPersonCamera : MonoBehaviour
 {
+    public Transform CameraTarget;
+    private float x = 0.0f;
+    private float y = 0.0f;
 
-    public Transform parentTransform;   //the transform of the player or object you want the camera to focus on
-    float mouseOrgX;                   //screen x coordinate when middle mouse button is first pressed
-    float mouseOrgY;                   //screen y coordinate when middle mouse button is first pressed
-    public float rotSpeed;              //how fast the camera rotates around the focussed object
-    public int tolerance;
-    public float zoomSpeed;
-    Vector3 targToCamNoY;               //vector from the camera to the object of focus with y=0
-    float yAngle;
-    public float yAngleTol;             //the angle in degrees that the focus object to camera vector can be from the flat plane running throw the focus object's origin
-    float yCompOrg;
-    bool tooHigh;
-    bool tooLow;
-    Vector3 playerToCamera;
-    public float magAdjustment;       //controls how close a collider has to be to the back of the camera to justify turning of backwards zoom
-    bool allowZoomOut;
-    public int minZoomDist;
-    public int maxZoomDist;
+    private int mouseXSpeedMod = 5;
+    private int mouseYSpeedMod = 5;
 
+    public float MaxViewDistance = 15f;
+    public float MinViewDistance = 1f;
+    public int ZoomRate = 20;
+    private int lerpRate = 5;
+    private float distance = 3f;
+    private float desireDistance;
+    private float correctedDistance;
+    private float currentDistance;
+
+    public float cameraTargetHeight = 1.0f;
+
+    //checks if first person mode is on
+    private bool click = false;
+    //stores cameras distance from player
+    private float curDist = 0;
 
     // Use this for initialization
     void Start()
     {
-        mouseOrgX = 0;
-        mouseOrgY = 0;
-        tooHigh = false;
-        tooLow = false;
+        Vector3 Angles = transform.eulerAngles;
+        x = Angles.x;
+        y = Angles.y;
+        currentDistance = distance;
+        desireDistance = distance;
+        correctedDistance = distance;
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
+        if (Input.GetMouseButton(1))
+        {/*0 mouse btn izq, 1 mouse btn der*/
+            x += Input.GetAxis("Mouse X") * mouseXSpeedMod;
+            y += Input.GetAxis("Mouse Y") * mouseYSpeedMod;
+        }
+        else if (Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0)
+        {
+            float targetRotantionAngle = CameraTarget.eulerAngles.y;
+            float cameraRotationAngle = transform.eulerAngles.y;
+            x = Mathf.LerpAngle(cameraRotationAngle, targetRotantionAngle, lerpRate * Time.deltaTime);
+        }
 
+        y = ClampAngle(y, -15, 25);
+        Quaternion rotation = Quaternion.Euler(y, x, 0);
 
+        desireDistance -= Input.GetAxis("Mouse ScrollWheel") * Time.deltaTime * ZoomRate * Mathf.Abs(desireDistance);
+        desireDistance = Mathf.Clamp(desireDistance, MinViewDistance, MaxViewDistance);
+        correctedDistance = desireDistance;
+
+        Vector3 position = CameraTarget.position - (rotation * Vector3.forward * desireDistance);
+
+        RaycastHit collisionHit;
+        Vector3 cameraTargetPosition = new Vector3(CameraTarget.position.x, CameraTarget.position.y + cameraTargetHeight, CameraTarget.position.z);
+
+        bool isCorrected = false;
+        if (Physics.Linecast(cameraTargetPosition, position, out collisionHit))
+        {
+            position = collisionHit.point;
+            correctedDistance = Vector3.Distance(cameraTargetPosition, position);
+            isCorrected = true;
+        }
+
+        //?
+        //condicion ? first_expresion : second_expresion;
+        //(input > 0) ? isPositive : isNegative;
+
+        currentDistance = !isCorrected || correctedDistance > currentDistance ? Mathf.Lerp(currentDistance, correctedDistance, Time.deltaTime * ZoomRate) : correctedDistance;
+
+        position = CameraTarget.position - (rotation * Vector3.forward * currentDistance + new Vector3(0, -cameraTargetHeight, 0));
+
+        transform.rotation = rotation;
+        transform.position = position;
+
+        //CameraTarget.rotation = rotation;
+
+        float cameraX = transform.rotation.x;
+        //checks if right mouse button is pushed
+        if (Input.GetMouseButton(1))
+        {
+            //sets CHARACTERS x rotation to match cameras x rotation
+            CameraTarget.eulerAngles = new Vector3(cameraX, transform.eulerAngles.y, transform.eulerAngles.z);
+        }
+        //checks if middle mouse button is pushed down
         if (Input.GetMouseButtonDown(2))
         {
-            mouseOrgX = Input.mousePosition.x;
-            mouseOrgY = Input.mousePosition.y;
+            //if middle mouse button is pressed 1st time set click to true and camera in front of player and save cameras position before mmb.
+            //if mmb is pressed again set camera back to it's position before we clicked mmb 1st time and set click to false
+            if (click == false)
+            {
+                click = true;
+                curDist = distance;
+                distance = distance - distance - 1;
+            }
+            else
+            {
+                distance = curDist;
+                click = false;
+            }
         }
-        if (Input.GetMouseButton(2))
-        {
 
+    }
 
-            //left right input/movement =======================================================================================
-            if (Input.mousePosition.x >= (mouseOrgX + tolerance)) //move right
-            {
-                gameObject.transform.Translate(Vector3.right * Time.deltaTime * rotSpeed, Space.Self);
-            }
-            else if (Input.mousePosition.x <= (mouseOrgX - tolerance)) //move left
-            {
-                gameObject.transform.Translate(Vector3.right * Time.deltaTime * -rotSpeed, Space.Self);
-            }
-            //========================================================================================================
-
-
-
-
-            //check to see if too high or low =============================================================
-            targToCamNoY = parentTransform.position - gameObject.transform.position;
-            yCompOrg = targToCamNoY.y;
-            targToCamNoY.y = 0;
-
-            yAngle = Vector3.Angle(targToCamNoY, parentTransform.position - gameObject.transform.position);
-            //Debug.Log("yAngle = " + yAngle + "yCompOrg = " + yCompOrg + " tooHigh = " + tooHigh + " tooLow = " + tooLow);
-            if (yAngle > yAngleTol && yCompOrg < 0) //too far up
-            {
-                tooHigh = true;
-            }
-            else if (yAngle > yAngleTol && yCompOrg > 0) //too far down
-            {
-                tooLow = true;
-            }
-            //=============================================================================================
-
-
-
-
-            //only listen to curtain input based on prior analysis==================================================
-            if (tooHigh) //if too high only listen to downward input
-            {
-                if ((Input.mousePosition.y <= (mouseOrgY - tolerance))) //down
-                {
-                    gameObject.transform.Translate(Vector3.up * Time.deltaTime * -rotSpeed, Space.Self);
-                }
-            }
-            else if (tooLow) // only listen to upward input
-            {
-                if ((Input.mousePosition.y >= (mouseOrgY + tolerance))) //up
-                {
-                    gameObject.transform.Translate(Vector3.up * Time.deltaTime * rotSpeed, Space.Self);
-                }
-            }
-            else //camera is not too high or too low so listen to both up and down input
-            {
-                if ((Input.mousePosition.y >= (mouseOrgY + tolerance))) //up
-                {
-                    gameObject.transform.Translate(Vector3.up * Time.deltaTime * rotSpeed, Space.Self);
-                }
-                else if ((Input.mousePosition.y <= (mouseOrgY - tolerance))) //down
-                {
-                    gameObject.transform.Translate(Vector3.up * Time.deltaTime * -rotSpeed, Space.Self);
-                }
-            }
-            //========================================================================================================
-
-
-
-
-            //check to see if camera is no longer too high or too low =======================================
-            targToCamNoY = parentTransform.position - gameObject.transform.position;
-            yCompOrg = targToCamNoY.y;
-            targToCamNoY.y = 0;
-
-            yAngle = Vector3.Angle(targToCamNoY, parentTransform.position - gameObject.transform.position);
-            if (yAngle <= yAngleTol - 4) //4 is arbitrary
-            {
-                tooHigh = false;
-                tooLow = false;
-            }
-            //===============================================================================================
-
-
-        } //end if(Input.GetMouseDown(2))
-
-
-        //zoom in/out =======================================================================================
-        playerToCamera = gameObject.transform.position - parentTransform.position;
-        if (Input.mouseScrollDelta.y > 0 && playerToCamera.magnitude >= minZoomDist) //zoom in
-        {
-            gameObject.transform.Translate(Vector3.forward * Time.deltaTime * zoomSpeed, Space.Self);
-        }
-        else if (Input.mouseScrollDelta.y < 0 && allowZoomOut && playerToCamera.magnitude <= maxZoomDist) //zoom out
-        {
-            gameObject.transform.Translate(Vector3.forward * Time.deltaTime * -zoomSpeed, Space.Self);
-        }
-        //===================================================================================================
-
-        gameObject.transform.rotation = Quaternion.LookRotation(parentTransform.position - gameObject.transform.position, Vector3.up);
-
-    } //end update
-
-    void FixedUpdate()
+    private static float ClampAngle(float angle, float min, float max)
     {
-        RaycastHit hitInfo;
-        playerToCamera = gameObject.transform.position - parentTransform.position;
-
-        //if a collider is blocking the line of sight of the camera snap the camera in front of the collider ...
-        if (Physics.Raycast(parentTransform.position, playerToCamera, out hitInfo, playerToCamera.magnitude))
+        if (angle < -360)
         {
-            gameObject.transform.position = hitInfo.point;
+            angle += 360;
         }
-
-        //if a collider is too close to the backside of the camera, this prevents the user from zooming the camera out to keep the camera from jittering
-        if (Physics.Raycast(parentTransform.position, playerToCamera, out hitInfo, playerToCamera.magnitude + magAdjustment))
+        if (angle > 360)
         {
-            allowZoomOut = false;
+            angle -= 360;
         }
-        else //the is no collider that is too close to the back of the camera
-        {
-            allowZoomOut = true;
-        }
-
+        return Mathf.Clamp(angle, min, max);
     }
 }
