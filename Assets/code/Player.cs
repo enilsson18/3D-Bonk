@@ -10,11 +10,14 @@ public class Player : MonoBehaviour
     public Camera camera;
     //public GameObject staticObject;
 
-    public float speed;
-    public float jumpPower;
-    public float rotationSpeed;
-    public float mouseXSpeed;
-    public float mouseYSpeed;
+    public float maxAngularVelocity = 30;
+    public float speed = 100;
+    public float jumpPower = 300;
+
+    public bool rotateAroundPlayer = true;
+    [Range(0.01f, 1.0f)]
+    public float smoothFactor = 0.5f;
+    public float mouseSpeed = 10;
 
     private Vector3 offset;
     private float distToGround;
@@ -22,33 +25,51 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+
         rb = GetComponent<Rigidbody>();
-        distToGround = GetComponent<Collider>().bounds.extents.y;
+        rb.maxAngularVelocity = maxAngularVelocity;
         offset = camera.transform.position - rb.transform.position;
     }
 
     public bool IsGrounded() {
-        return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f);
-    }
-
-    public Vector3 RotatePointAroundPivot(Vector3 point, Vector3 pivot, Vector3 angles)
-    {
-        Vector3 dir = point - pivot; // get point direction relative to pivot
-        dir = Quaternion.Euler(angles) * dir; // rotate it
-        point = dir + pivot; // calculate rotated point
-        return point; // return it
+        //Collider col = rb.GetComponent<Collider>();
+        return Physics.Raycast(transform.position, Vector3.down, 0.5f);
     }
 
     // Update is called once per frame
     void Update()
     {
+        //cursor lock
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
+
+        if (Cursor.lockState == CursorLockMode.None && Input.GetMouseButtonDown(0))
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+
+        //camera stuff
+        if (rotateAroundPlayer && Cursor.lockState == CursorLockMode.Locked)
+        {
+            Quaternion camTurnAngleX = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * mouseSpeed, Vector3.up);
+            //Quaternion camTurnAngleY = Quaternion.AngleAxis(Input.GetAxis("Mouse Y") * mouseSpeed, -Vector3.right);
+            offset = camTurnAngleX * offset;
+            //offset = camTurnAngleY * offset;
+        }
+
+        camera.transform.position = Vector3.Slerp(camera.transform.position,rb.transform.position + offset, smoothFactor);
+
+        if (rotateAroundPlayer)
+        {
+            camera.transform.LookAt(rb.transform);
+        }
+
         //normal rolling update
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
-
-        //mouse input
-        float mouseX = Input.GetAxis("Mouse X") * mouseXSpeed;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseYSpeed;
 
         //rolling shit
         Vector3 forward = camera.transform.forward;
@@ -62,19 +83,16 @@ public class Player : MonoBehaviour
 
         rb.AddTorque(movement * speed);
 
-        //move the camera accordingly
-        Vector3 angles = (transform.up * (-1 * Convert.ToInt32(Input.GetKeyDown(KeyCode.LeftArrow)) * rotationSpeed + Convert.ToInt32(Input.GetKeyDown(KeyCode.RightArrow)) * rotationSpeed));
-
-        camera.transform.position = rb.transform.position + offset;
-        camera.transform.position = RotatePointAroundPivot(camera.transform.position, rb.transform.position, angles);
-
-        //staticObject.transform.position = rb.transform.position;
-        //staticObject.transform.rotation = Quaternion.LookRotation(rb.velocity);
+        //stop rolling
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            
+        }
 
         //jumping
-        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+        if (Input.GetKey(KeyCode.Space) && IsGrounded())
         {
-            rb.AddForce(transform.up * jumpPower);
+            rb.AddForce(Vector3.up * jumpPower);
         }
     }
 }
