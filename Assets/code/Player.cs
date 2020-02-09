@@ -21,6 +21,10 @@ public class Player : MonoBehaviour
     public float smoothFactor = 0.5f;
     public float mouseSpeed = 10;
 
+    //materials
+    public PhysicMaterial noBounce;
+    private PhysicMaterial currentPhysicsMat;
+
     private int jumpDelay = 50;
     private int jumpTimer;
 
@@ -37,6 +41,8 @@ public class Player : MonoBehaviour
         rb.maxAngularVelocity = maxAngularVelocity;
         offset = camera.transform.position - rb.transform.position;
         jumpTimer = 0;
+
+        currentPhysicsMat = col.material;
     }
 
     public bool IsGrounded() {
@@ -91,12 +97,22 @@ public class Player : MonoBehaviour
         rb.AddTorque(movement * speed);
 
         //stop rolling
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftControl))
         {
             rb.angularDrag = drag * 10;
         } else
         {
             rb.angularDrag = drag;
+        }
+
+        //stop bouncing
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            col.material = noBounce;
+        }
+        else
+        {
+            col.material = currentPhysicsMat;
         }
 
         //jumping
