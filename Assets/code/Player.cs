@@ -8,16 +8,21 @@ public class Player : MonoBehaviour
 {
     public Rigidbody rb;
     public Camera camera;
+    private Collider col;
     //public GameObject staticObject;
 
     public float maxAngularVelocity = 30;
     public float speed = 100;
+    public float drag = 0.5f;
     public float jumpPower = 300;
 
     public bool rotateAroundPlayer = true;
     [Range(0.01f, 1.0f)]
     public float smoothFactor = 0.5f;
     public float mouseSpeed = 10;
+
+    private int jumpDelay = 50;
+    private int jumpTimer;
 
     private Vector3 offset;
     private float distToGround;
@@ -28,13 +33,15 @@ public class Player : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         rb = GetComponent<Rigidbody>();
+        col = GetComponent<Collider>();
         rb.maxAngularVelocity = maxAngularVelocity;
         offset = camera.transform.position - rb.transform.position;
+        jumpTimer = 0;
     }
 
     public bool IsGrounded() {
         //Collider col = rb.GetComponent<Collider>();
-        return Physics.Raycast(transform.position, Vector3.down, 0.5f);
+        return Physics.Raycast(transform.position, Vector3.down, col.bounds.size.y/2 + 0.1f);
     }
 
     // Update is called once per frame
@@ -60,7 +67,7 @@ public class Player : MonoBehaviour
             //offset = camTurnAngleY * offset;
         }
 
-        camera.transform.position = Vector3.Slerp(camera.transform.position,rb.transform.position + offset, smoothFactor);
+        camera.transform.position = Vector3.Slerp(camera.transform.position, rb.transform.position + offset, smoothFactor);
 
         if (rotateAroundPlayer)
         {
@@ -86,13 +93,36 @@ public class Player : MonoBehaviour
         //stop rolling
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            
+            rb.angularDrag = drag * 10;
+        } else
+        {
+            rb.angularDrag = drag;
         }
 
         //jumping
-        if (Input.GetKey(KeyCode.Space) && IsGrounded())
+        if (Input.GetKey(KeyCode.Space) && IsGrounded() && jumpTimer == 0)
         {
             rb.AddForce(Vector3.up * jumpPower);
+            jumpTimer += 1;
+        }
+
+        if (jumpTimer != 0)
+        {
+            jumpTimer += 1;
+            if (jumpTimer >= jumpDelay)
+            {
+                jumpTimer = 0;
+            }
+        }
+
+        //powerups
+        if (Input.GetKey(KeyCode.Q))
+        {
+            //rb.transform.localScale = new Vector3(2, 2, 2);
+        }
+        else
+        {
+            //rb.transform.localScale = new Vector3(1, 1, 1);
         }
     }
 }
