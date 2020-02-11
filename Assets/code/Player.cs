@@ -131,14 +131,15 @@ public class Player : MonoBehaviour
             }
         }
 
-        //powerups
+        //wall running left
         if (Input.GetKey(KeyCode.Q))
         {
-            //rb.transform.localScale = new Vector3(2, 2, 2);
+            rb.AddTorque(Vector3.up * speed);
         }
-        else
+        //wall running right
+        if (Input.GetKey(KeyCode.E))
         {
-            //rb.transform.localScale = new Vector3(1, 1, 1);
+            rb.AddTorque(Vector3.up * -speed);
         }
     }
 }
