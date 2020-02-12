@@ -21,6 +21,13 @@ public class Player : MonoBehaviour
     public float smoothFactor = 0.5f;
     public float mouseSpeed = 10;
 
+    //respawn stuff
+    private Vector3 respawnTransform;
+
+    //timer stop watch stuff
+    private float timer;
+    private bool timing = false;
+
     //materials
     public PhysicMaterial noBounce;
     private PhysicMaterial currentPhysicsMat;
@@ -30,6 +37,37 @@ public class Player : MonoBehaviour
 
     private Vector3 offset;
     private float distToGround;
+
+    //timer shit
+    public void startTimer()
+    {
+        timing = true;
+        timer = 0;
+        print(timer);
+    }
+
+    void updateTimer()
+    {
+        timer += Time.fixedDeltaTime;
+    }
+
+    public void stopTimer()
+    {
+        timing = false;
+        print(timer);
+    }
+
+    //respawn method if the person dies or somtin
+    public void respawn()
+    {
+        rb.position = respawnTransform;
+        rb.velocity = Vector3.zero;
+    }
+
+    public void setRespawn(Vector3 newRespawn)
+    {
+        respawnTransform = newRespawn;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +81,8 @@ public class Player : MonoBehaviour
         jumpTimer = 0;
 
         currentPhysicsMat = col.material;
+
+        respawnTransform = rb.position;
     }
 
     public bool IsGrounded() {
@@ -53,6 +93,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        updateTimer();
+
         //cursor lock
         if (Input.GetKey(KeyCode.Escape))
         {
@@ -141,5 +183,11 @@ public class Player : MonoBehaviour
         {
             rb.AddTorque(Vector3.up * -speed);
         }
+    }
+
+    //getters
+    public float getTimer()
+    {
+        return (float)Math.Round(timer * 100f) / 100f;
     }
 }

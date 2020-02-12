@@ -83,7 +83,10 @@
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Procedural Mesh\ExtrudeRandomEdges.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Runtime Editing\RuntimeEdit.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Vertex Colors\HighlightNearestFace.cs" />
+    <Compile Include="Assets\code\End.cs" />
+    <Compile Include="Assets\code\KillBox.cs" />
     <Compile Include="Assets\code\Player.cs" />
+    <Compile Include="Assets\code\Start.cs" />
     <Compile Include="Assets\code\ThirdPersonCamera.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
