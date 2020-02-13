@@ -8,9 +8,13 @@ public class Player : MonoBehaviour
 {
     public Rigidbody rb;
     public Camera camera;
+    public PhysicMaterial noBounce;
     private Collider col;
-    //public GameObject staticObject;
 
+    //ui stuff
+    public Text timeUI;
+
+    //variables the player sets
     public float maxAngularVelocity = 30;
     public float speed = 100;
     public float drag = 0.5f;
@@ -29,7 +33,6 @@ public class Player : MonoBehaviour
     private bool timing = false;
 
     //materials
-    public PhysicMaterial noBounce;
     private PhysicMaterial currentPhysicsMat;
 
     private int jumpDelay = 50;
@@ -38,7 +41,7 @@ public class Player : MonoBehaviour
     private Vector3 offset;
     private float distToGround;
 
-    //timer shit
+    //timer stuff
     public void startTimer()
     {
         timing = true;
@@ -48,7 +51,13 @@ public class Player : MonoBehaviour
 
     void updateTimer()
     {
-        timer += Time.fixedDeltaTime;
+        if (timing)
+        {
+            timer += Time.fixedDeltaTime;
+        }
+        //print(timer);
+        timeUI.text = "Time: " + getTimer();
+        timeUI.SetAllDirty();
     }
 
     public void stopTimer()
@@ -69,32 +78,13 @@ public class Player : MonoBehaviour
         respawnTransform = newRespawn;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-
-        rb = GetComponent<Rigidbody>();
-        col = GetComponent<Collider>();
-        rb.maxAngularVelocity = maxAngularVelocity;
-        offset = camera.transform.position - rb.transform.position;
-        jumpTimer = 0;
-
-        currentPhysicsMat = col.material;
-
-        respawnTransform = rb.position;
-    }
-
     public bool IsGrounded() {
         //Collider col = rb.GetComponent<Collider>();
         return Physics.Raycast(transform.position, Vector3.down, col.bounds.size.y/2 + 0.1f);
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    private void updateKeys()
     {
-        updateTimer();
-
         //cursor lock
         if (Input.GetKey(KeyCode.Escape))
         {
@@ -106,43 +96,12 @@ public class Player : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
         }
 
-        //camera stuff
-        if (rotateAroundPlayer && Cursor.lockState == CursorLockMode.Locked)
-        {
-            Quaternion camTurnAngleX = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * mouseSpeed, Vector3.up);
-            //Quaternion camTurnAngleY = Quaternion.AngleAxis(Input.GetAxis("Mouse Y") * mouseSpeed, -Vector3.right);
-            offset = camTurnAngleX * offset;
-            //offset = camTurnAngleY * offset;
-        }
-
-        camera.transform.position = Vector3.Slerp(camera.transform.position, rb.transform.position + offset, smoothFactor);
-
-        if (rotateAroundPlayer)
-        {
-            camera.transform.LookAt(rb.transform);
-        }
-
-        //normal rolling update
-        float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Vertical");
-
-        //rolling shit
-        Vector3 forward = camera.transform.forward;
-        Vector3 right = camera.transform.right;
-        forward.y = 0.0f;
-        right.y = 0.0f;
-        forward.Normalize();
-        right.Normalize();
-
-        Vector3 movement = right * y - forward * x;
-
-        rb.AddTorque(movement * speed);
-
         //stop rolling
         if (Input.GetKey(KeyCode.LeftControl))
         {
             rb.angularDrag = drag * 10;
-        } else
+        }
+        else
         {
             rb.angularDrag = drag;
         }
@@ -183,6 +142,72 @@ public class Player : MonoBehaviour
         {
             rb.AddTorque(Vector3.up * -speed);
         }
+    }
+
+    private void updateCamera()
+    {
+        //camera stuff
+        if (rotateAroundPlayer && Cursor.lockState == CursorLockMode.Locked)
+        {
+            Quaternion camTurnAngleX = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * mouseSpeed, Vector3.up);
+            //Quaternion camTurnAngleY = Quaternion.AngleAxis(Input.GetAxis("Mouse Y") * mouseSpeed, -Vector3.right);
+            offset = camTurnAngleX * offset;
+            //offset = camTurnAngleY * offset;
+        }
+
+        camera.transform.position = Vector3.Slerp(camera.transform.position, rb.transform.position + offset, smoothFactor);
+
+        if (rotateAroundPlayer)
+        {
+            camera.transform.LookAt(rb.transform);
+        }
+    }
+
+    private void updateRoll()
+    {
+        //normal rolling update
+        float x = Input.GetAxis("Horizontal");
+        float y = Input.GetAxis("Vertical");
+
+        //rolling shit
+        Vector3 forward = camera.transform.forward;
+        Vector3 right = camera.transform.right;
+        forward.y = 0.0f;
+        right.y = 0.0f;
+        forward.Normalize();
+        right.Normalize();
+
+        Vector3 movement = right * y - forward * x;
+
+        rb.AddTorque(movement * speed);
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+
+        rb = GetComponent<Rigidbody>();
+        col = GetComponent<Collider>();
+        rb.maxAngularVelocity = maxAngularVelocity;
+        offset = camera.transform.position - rb.transform.position;
+        jumpTimer = 0;
+
+        currentPhysicsMat = col.material;
+
+        respawnTransform = rb.position;
+    }
+
+    //main method
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        updateTimer();
+
+        updateCamera();
+        updateKeys();
+
+        updateRoll();
     }
 
     //getters
