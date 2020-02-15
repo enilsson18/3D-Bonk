@@ -62,21 +62,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\EazyCamera\Code\Animation\EzAnimator.cs" />
-    <Compile Include="Assets\EazyCamera\Code\Camera\EzCamera.cs" />
-    <Compile Include="Assets\EazyCamera\Code\Camera\EzCameraCollider.cs" />
-    <Compile Include="Assets\EazyCamera\Code\Camera\EzCameraController.cs" />
-    <Compile Include="Assets\EazyCamera\Code\Camera\EzCameraSettings.cs" />
-    <Compile Include="Assets\EazyCamera\Code\Camera\EzLockOnTarget.cs" />
-    <Compile Include="Assets\EazyCamera\Code\Controller\EzPlayerController.cs" />
-    <Compile Include="Assets\EazyCamera\Code\Player\Locomotion\EzMotor.cs" />
-    <Compile Include="Assets\EazyCamera\Code\StateMachine\CameraStates\EzCameraState.cs" />
-    <Compile Include="Assets\EazyCamera\Code\StateMachine\CameraStates\EzFollowState.cs" />
-    <Compile Include="Assets\EazyCamera\Code\StateMachine\CameraStates\EzLockOnState.cs" />
-    <Compile Include="Assets\EazyCamera\Code\StateMachine\CameraStates\EzOrbitState.cs" />
-    <Compile Include="Assets\EazyCamera\Code\StateMachine\CameraStates\EzStationaryState.cs" />
-    <Compile Include="Assets\EazyCamera\Code\StateMachine\EzStateMachine.cs" />
-    <Compile Include="Assets\EazyCamera\Code\Util\ExtensionMethods.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\Scripts\CameraControls.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\Scripts\IcoBumpin.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Misc\HueCube.cs" />
@@ -90,7 +75,6 @@
     <Compile Include="Assets\code\ThirdPersonCamera.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
-    <None Include="Assets\EazyCamera\README.txt" />
     <None Include="Assets\ProCore\ProBuilder\Shader\pb_ScrollHighlight.shader" />
     <None Include="Assets\ProCore\ProBuilder\readme.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />

@@ -62,7 +62,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\EazyCamera\Code\Camera\Editor\EzCamInspector.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Editor\ClearUnusedAttributes.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Editor\CreateShadowObject.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Editor\CustomAction.cs" />

@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public Camera camera;
     public PhysicMaterial noBounce;
     private Collider col;
+    private Vector3 fNormal;
 
     //ui stuff
     public Text timeUI;
@@ -66,6 +67,12 @@ public class Player : MonoBehaviour
         print(timer);
     }
 
+    //collision cases
+    private void OnCollisionEnter(Collision collision)
+    {
+        fNormal = collision.contacts[0].normal;
+    }
+
     //respawn method if the person dies or somtin
     public void respawn()
     {
@@ -80,7 +87,7 @@ public class Player : MonoBehaviour
 
     public bool IsGrounded() {
         //Collider col = rb.GetComponent<Collider>();
-        return Physics.Raycast(transform.position, Vector3.down, col.bounds.size.y/2 + 0.1f);
+        return Physics.Raycast(transform.position, -fNormal, col.bounds.size.y/2 + 0.1f);
     }
 
     private void updateKeys()
@@ -119,7 +126,8 @@ public class Player : MonoBehaviour
         //jumping
         if (Input.GetKey(KeyCode.Space) && IsGrounded() && jumpTimer == 0)
         {
-            rb.AddForce(Vector3.up * jumpPower);
+            
+            rb.AddForce(fNormal * jumpPower);
             jumpTimer += 1;
         }
 
@@ -149,10 +157,10 @@ public class Player : MonoBehaviour
         //camera stuff
         if (rotateAroundPlayer && Cursor.lockState == CursorLockMode.Locked)
         {
+            
             Quaternion camTurnAngleX = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * mouseSpeed, Vector3.up);
-            //Quaternion camTurnAngleY = Quaternion.AngleAxis(Input.GetAxis("Mouse Y") * mouseSpeed, -Vector3.right);
+            //Quaternion camTurnAngleY = Quaternion.AngleAxis(Input.GetAxis("Mouse Y") * -mouseSpeed, Vector3.right);
             offset = camTurnAngleX * offset;
-            //offset = camTurnAngleY * offset;
         }
 
         camera.transform.position = Vector3.Slerp(camera.transform.position, rb.transform.position + offset, smoothFactor);
