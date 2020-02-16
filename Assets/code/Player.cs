@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public Camera camera;
     public PhysicMaterial noBounce;
     private Collider col;
+    private Collider cameraCollider;
     private Vector3 fNormal;
 
     //ui stuff
@@ -36,10 +37,12 @@ public class Player : MonoBehaviour
     //materials
     private PhysicMaterial currentPhysicsMat;
 
-    private int jumpDelay = 50;
+    private int jumpDelay = 5;
     private int jumpTimer;
 
     private Vector3 offset;
+    private Vector3 cameraPosition;
+    private Vector3 pastPosition;
     private float distToGround;
 
     //timer stuff
@@ -152,17 +155,30 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void cameraCollided()
+    {
+        //camera.transform.position = pastPosition;
+    }
+
     private void updateCamera()
     {
+        Vector3 offsetX = offset;
+        Vector3 offsetY = offset;
+
         //camera stuff
         if (rotateAroundPlayer && Cursor.lockState == CursorLockMode.Locked)
         {
             
             Quaternion camTurnAngleX = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * mouseSpeed, Vector3.up);
             //Quaternion camTurnAngleY = Quaternion.AngleAxis(Input.GetAxis("Mouse Y") * -mouseSpeed, Vector3.right);
+            //Quaternion temp = camTurnAngleX * camTurnAngleY;
+            //temp.Normalize();
+
             offset = camTurnAngleX * offset;
+            //offsetY = camTurnAngleY * offset;
         }
 
+        //pastPosition = camera.transform.position;
         camera.transform.position = Vector3.Slerp(camera.transform.position, rb.transform.position + offset, smoothFactor);
 
         if (rotateAroundPlayer)
@@ -187,6 +203,8 @@ public class Player : MonoBehaviour
 
         Vector3 movement = right * y - forward * x;
 
+        //print((Mathf.Abs(rb.angularVelocity.x) + Mathf.Abs(rb.angularVelocity.y) + Mathf.Abs(rb.angularVelocity.z) / 3));
+        //rb.AddTorque(movement * speed * 1.1f/((Mathf.Abs(rb.angularVelocity.x) + Mathf.Abs(rb.angularVelocity.y) + Mathf.Abs(rb.angularVelocity.z)/3)));
         rb.AddTorque(movement * speed);
     }
 
@@ -197,6 +215,7 @@ public class Player : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
         col = GetComponent<Collider>();
+        cameraCollider = camera.GetComponent<Collider>();
         rb.maxAngularVelocity = maxAngularVelocity;
         offset = camera.transform.position - rb.transform.position;
         jumpTimer = 0;

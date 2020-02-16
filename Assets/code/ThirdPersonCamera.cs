@@ -4,7 +4,26 @@ using UnityEngine;
 
 public class ThirdPersonCamera : MonoBehaviour
 {
+    public Player player;
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        //player.cameraCollided();
+        //print("collided");
+    }
+
+    private void Start()
+    {
+        
+    }
+
+    private void FixedUpdate()
+    {
+        
+    }
+
+
+    /*
     protected Transform _XForm_Camera;
     protected Transform _XForm_Parent;
 
@@ -68,4 +87,5 @@ public class ThirdPersonCamera : MonoBehaviour
             this._XForm_Camera.localPosition = new Vector3(0f, 0f, Mathf.Lerp(this._XForm_Camera.localPosition.z, this._CameraDistance * -1f, Time.deltaTime * ScrollDampening));
         }
     }
+    */
 }
