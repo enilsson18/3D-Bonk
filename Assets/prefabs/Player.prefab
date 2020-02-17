@@ -184,7 +184,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.01
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -382,9 +382,9 @@ MonoBehaviour:
   noBounce: {fileID: 13400000, guid: 46136310df3eead45852e6676c701bb3, type: 2}
   timeUI: {fileID: 5226129032862456889}
   maxAngularVelocity: 60
-  speed: 70
+  speed: 10
   drag: 0.5
-  jumpPower: 300
+  jumpPower: 150
   rotateAroundPlayer: 1
   smoothFactor: 0.5
   mouseSpeed: 10

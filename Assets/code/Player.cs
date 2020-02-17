@@ -107,7 +107,7 @@ public class Player : MonoBehaviour
         }
 
         //stop rolling
-        if (Input.GetKey(KeyCode.LeftControl))
+        if (Input.GetKey(KeyCode.LeftControl) || Input.GetButton("XboxX"))
         {
             rb.angularDrag = drag * 10;
         }
@@ -117,7 +117,7 @@ public class Player : MonoBehaviour
         }
 
         //stop bouncing
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) || Input.GetButton("XboxLT"))
         {
             col.material = noBounce;
         }
@@ -127,10 +127,15 @@ public class Player : MonoBehaviour
         }
 
         //jumping
-        if (Input.GetKey(KeyCode.Space) && IsGrounded() && jumpTimer == 0)
+        if ((Input.GetKey(KeyCode.Space) || Input.GetButton("XboxRT")) && IsGrounded() && jumpTimer == 0)
         {
+            Vector3 fN = fNormal;
+            //fN.x /= 2;
+            //fN.z /= 2;
+            print(fN.y);
+            fN.y += 1f;
             
-            rb.AddForce(fNormal * jumpPower);
+            rb.AddForce(fN * jumpPower);
             jumpTimer += 1;
         }
 
@@ -144,12 +149,12 @@ public class Player : MonoBehaviour
         }
 
         //wall running left
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKey(KeyCode.Q) || Input.GetButton("XboxLB"))
         {
             rb.AddTorque(Vector3.up * speed);
         }
         //wall running right
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.E) || Input.GetButton("XboxRB"))
         {
             rb.AddTorque(Vector3.up * -speed);
         }
@@ -168,7 +173,7 @@ public class Player : MonoBehaviour
         //camera stuff
         if (rotateAroundPlayer && Cursor.lockState == CursorLockMode.Locked)
         {
-            
+
             Quaternion camTurnAngleX = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * mouseSpeed, Vector3.up);
             //Quaternion camTurnAngleY = Quaternion.AngleAxis(Input.GetAxis("Mouse Y") * -mouseSpeed, Vector3.right);
             //Quaternion temp = camTurnAngleX * camTurnAngleY;
@@ -180,6 +185,12 @@ public class Player : MonoBehaviour
 
         //pastPosition = camera.transform.position;
         camera.transform.position = Vector3.Slerp(camera.transform.position, rb.transform.position + offset, smoothFactor);
+
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, -(rb.transform.position - camera.transform.position).normalized, out hit, col.bounds.size.y / 2 + Vector3.Distance(rb.transform.position, camera.transform.position)))
+        {
+            camera.transform.position = Vector3.MoveTowards(camera.transform.position, rb.transform.position, Vector3.Distance(rb.transform.position, camera.transform.position) - hit.distance + 0.1f);
+        }
 
         if (rotateAroundPlayer)
         {
@@ -204,8 +215,7 @@ public class Player : MonoBehaviour
         Vector3 movement = right * y - forward * x;
 
         //print((Mathf.Abs(rb.angularVelocity.x) + Mathf.Abs(rb.angularVelocity.y) + Mathf.Abs(rb.angularVelocity.z) / 3));
-        //rb.AddTorque(movement * speed * 1.1f/((Mathf.Abs(rb.angularVelocity.x) + Mathf.Abs(rb.angularVelocity.y) + Mathf.Abs(rb.angularVelocity.z)/3)));
-        rb.AddTorque(movement * speed);
+        rb.AddTorque(movement * (speed));
     }
 
     // Start is called before the first frame update
@@ -216,12 +226,11 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         col = GetComponent<Collider>();
         cameraCollider = camera.GetComponent<Collider>();
-        rb.maxAngularVelocity = maxAngularVelocity;
         offset = camera.transform.position - rb.transform.position;
         jumpTimer = 0;
 
         currentPhysicsMat = col.material;
-
+        rb.maxAngularVelocity = maxAngularVelocity;
         respawnTransform = rb.position;
     }
 
