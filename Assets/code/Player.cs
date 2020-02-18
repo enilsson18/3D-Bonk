@@ -45,6 +45,21 @@ public class Player : MonoBehaviour
     private Vector3 pastPosition;
     private float distToGround;
 
+    //networking varaibles
+    public bool multiplayer = true;
+    private bool driveEnabled = true;
+
+    //Network Setup stuff
+    public void setup(Camera camera, bool driveEnabled)
+    {
+        if (multiplayer)
+        {
+            print("asdasd");
+            //this.camera = camera;
+            this.driveEnabled = driveEnabled;
+        }
+    }
+
     //timer stuff
     public void startTimer()
     {
@@ -238,12 +253,15 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        updateTimer();
+        if (!multiplayer || driveEnabled)
+        {
+            updateTimer();
 
-        updateCamera();
-        updateKeys();
+            updateCamera();
+            updateKeys();
 
-        updateRoll();
+            updateRoll();
+        }
     }
 
     //getters

@@ -1952,6 +1952,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5039796153301099390, guid: 500fc3fd92d842f4689ba19006890359,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5087516520120754586, guid: 500fc3fd92d842f4689ba19006890359,
+        type: 3}
+      propertyPath: sceneId
+      value: 1047993657
+      objectReference: {fileID: 0}
     - target: {fileID: 5226129033186181556, guid: 500fc3fd92d842f4689ba19006890359,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2027,6 +2037,11 @@ PrefabInstance:
       propertyPath: speed
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 5226129034122953313, guid: 500fc3fd92d842f4689ba19006890359,
+        type: 3}
+      propertyPath: multiplayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5226129034122953314, guid: 500fc3fd92d842f4689ba19006890359,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -2037,7 +2052,15 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7801854863673422780, guid: 500fc3fd92d842f4689ba19006890359,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5039796153301099390, guid: 500fc3fd92d842f4689ba19006890359, type: 3}
+    - {fileID: 7801854863673422780, guid: 500fc3fd92d842f4689ba19006890359, type: 3}
+    - {fileID: 5087516520120754586, guid: 500fc3fd92d842f4689ba19006890359, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 500fc3fd92d842f4689ba19006890359, type: 3}
 --- !u!1 &1743737040
 GameObject:

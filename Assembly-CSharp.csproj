@@ -65,6 +65,7 @@
     <Compile Include="Assets\code\CheckPoint.cs" />
     <Compile Include="Assets\code\End.cs" />
     <Compile Include="Assets\code\KillBox.cs" />
+    <Compile Include="Assets\code\NetworkPlayerSetup.cs" />
     <Compile Include="Assets\code\Player.cs" />
     <Compile Include="Assets\code\Start.cs" />
     <Compile Include="Assets\code\Teleport.cs" />
