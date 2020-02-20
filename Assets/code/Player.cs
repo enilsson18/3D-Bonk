@@ -19,12 +19,16 @@ public class Player : MonoBehaviour
     //variables the player sets
     public float maxAngularVelocity = 30;
     public float speed = 100;
+    public float arialSpeed = 0.05f;
     public float drag = 0.5f;
     public float jumpPower = 300;
+    public float wallVerticalJump = 0.7f;
+    public bool respawnEnabled = true;
 
     public bool rotateAroundPlayer = true;
     [Range(0.01f, 1.0f)]
     public float smoothFactor = 0.5f;
+    [Range(0f, 2.0f)]
     public float mouseSpeed = 10;
 
     //respawn stuff
@@ -96,6 +100,7 @@ public class Player : MonoBehaviour
     {
         rb.position = respawnTransform;
         rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
     }
 
     public void setRespawn(Vector3 newRespawn)
@@ -119,6 +124,12 @@ public class Player : MonoBehaviour
         if (Cursor.lockState == CursorLockMode.None && Input.GetMouseButtonDown(0))
         {
             Cursor.lockState = CursorLockMode.Locked;
+        }
+
+        //respawn
+        if (Input.GetKey(KeyCode.R) && respawnEnabled)
+        {
+            respawn();
         }
 
         //stop rolling
@@ -148,7 +159,7 @@ public class Player : MonoBehaviour
             //fN.x /= 2;
             //fN.z /= 2;
             print(fN.y);
-            fN.y += 1f;
+            fN.y += wallVerticalJump;
             
             rb.AddForce(fN * jumpPower);
             jumpTimer += 1;
@@ -231,6 +242,13 @@ public class Player : MonoBehaviour
 
         //print((Mathf.Abs(rb.angularVelocity.x) + Mathf.Abs(rb.angularVelocity.y) + Mathf.Abs(rb.angularVelocity.z) / 3));
         rb.AddTorque(movement * (speed));
+
+        //if in the air then have arial movement
+        if (!IsGrounded())
+        {
+            movement = right * x + forward * y;
+            rb.AddForce(movement * speed * arialSpeed);
+        }
     }
 
     // Start is called before the first frame update

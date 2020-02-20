@@ -178,7 +178,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   player: {fileID: 5226129034122953315}
-  camera: {fileID: 5226129033584309029}
+  cam: {fileID: 0}
 --- !u!1 &5226129033584309024
 GameObject:
   m_ObjectHideFlags: 0
@@ -435,12 +435,14 @@ MonoBehaviour:
   noBounce: {fileID: 13400000, guid: 46136310df3eead45852e6676c701bb3, type: 2}
   timeUI: {fileID: 5226129032862456889}
   maxAngularVelocity: 60
-  speed: 10
+  speed: 6
   drag: 0.5
-  jumpPower: 150
+  jumpPower: 250
+  wallVerticalJump: 0.7
   rotateAroundPlayer: 1
   smoothFactor: 0.5
   mouseSpeed: 10
+  multiplayer: 1
 --- !u!1 &5226129034672866383
 GameObject:
   m_ObjectHideFlags: 0
