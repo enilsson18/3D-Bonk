@@ -28,8 +28,8 @@ public class Player : MonoBehaviour
     public bool rotateAroundPlayer = true;
     [Range(0.01f, 1.0f)]
     public float smoothFactor = 0.5f;
-    [Range(0f, 2.0f)]
-    public float mouseSpeed = 10;
+    [Range(0f, 10.0f)]
+    public float mouseSpeed = 6;
 
     //respawn stuff
     private Vector3 respawnTransform;
@@ -54,12 +54,12 @@ public class Player : MonoBehaviour
     private bool driveEnabled = true;
 
     //Network Setup stuff
-    public void setup(Camera camera, bool driveEnabled)
+    public void setup(bool driveEnabled)
     {
         if (multiplayer)
         {
-            print("asdasd");
             //this.camera = camera;
+            camera.enabled = driveEnabled;
             this.driveEnabled = driveEnabled;
         }
     }
@@ -119,11 +119,13 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.Escape))
         {
             Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
 
         if (Cursor.lockState == CursorLockMode.None && Input.GetMouseButtonDown(0))
         {
             Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
 
         //respawn
@@ -158,7 +160,6 @@ public class Player : MonoBehaviour
             Vector3 fN = fNormal;
             //fN.x /= 2;
             //fN.z /= 2;
-            print(fN.y);
             fN.y += wallVerticalJump;
             
             rb.AddForce(fN * jumpPower);

@@ -6,18 +6,19 @@ using Mirror;
 public class NetworkPlayerSetup : NetworkBehaviour
 {
     public GameObject player;
-    public Camera cam;
 
     // Start is called before the first frame update
     void Start()
     {
+        DontDestroyOnLoad(gameObject);
+
         if (!isLocalPlayer)
         {
 
-            player.GetComponent<Player>().setup(cam, false);
+            player.GetComponent<Player>().setup(false);
         } else
         {
-            player.GetComponent<Player>().setup(cam, true);
+            player.GetComponent<Player>().setup(true);
         }
     }
 

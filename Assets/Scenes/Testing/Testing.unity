@@ -4642,7 +4642,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aab4c8111b7c411b9b92cf3dbc5bd4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dontDestroyOnLoad: 0
+  dontDestroyOnLoad: 1
   runInBackground: 1
   startOnHeadless: 1
   serverTickRate: 30
@@ -5740,7 +5740,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5babfd2832d7755478d19bcf9abb0b89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: Level1
+  scene: 1
+  currentScene: 0
 --- !u!64 &9134696083658501604
 MeshCollider:
   m_ObjectHideFlags: 0

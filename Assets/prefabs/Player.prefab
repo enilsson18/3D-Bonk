@@ -105,6 +105,7 @@ GameObject:
   - component: {fileID: 5087516520120754586}
   - component: {fileID: 7801854863673422780}
   - component: {fileID: 5905602185578987068}
+  - component: {fileID: 1991381188742422206}
   - component: {fileID: 5039796153301099390}
   m_Layer: 0
   m_Name: Player
@@ -184,6 +185,26 @@ MonoBehaviour:
   localScaleSensitivity: 0.01
   compressRotation: 1
   target: {fileID: 5226129034122953314}
+--- !u!114 &1991381188742422206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5226129033186181557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 734b48bea0b204338958ee3d885e11f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  clientAuthority: 1
+  localPositionSensitivity: 0.01
+  localRotationSensitivity: 0.01
+  localScaleSensitivity: 0.01
+  compressRotation: 1
+  target: {fileID: 5226129033584309031}
 --- !u!114 &5039796153301099390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,7 +220,6 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   player: {fileID: 5226129034122953315}
-  cam: {fileID: 5226129033584309029}
 --- !u!1 &5226129033584309024
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,12 +479,12 @@ MonoBehaviour:
   speed: 6
   arialSpeed: 0.05
   drag: 0.5
-  jumpPower: 250
+  jumpPower: 200
   wallVerticalJump: 0.7
   respawnEnabled: 1
   rotateAroundPlayer: 1
   smoothFactor: 0.5
-  mouseSpeed: 10
+  mouseSpeed: 6
   multiplayer: 1
 --- !u!1 &5226129034672866383
 GameObject:
