@@ -185,8 +185,8 @@ MonoBehaviour:
     y: 0
     width: 239
     height: 671
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -384,8 +384,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: -32000
-    y: -31970
+    x: 0
+    y: 73
     width: 238
     height: 650
   m_ViewDataDictionary: {fileID: 0}
@@ -394,7 +394,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 6ab8ffff86b8ffff3abbffff52bbffff84c2ffffa0c2ffff50c5ffff64c5ffff54fbffff66fbffff76390000
+      m_ExpandedIDs: d2a5fffff0a5ffff56a7ffff1ea8ffffa4caffff82f8ffff66fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -467,8 +467,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: -31761
-    y: -31970
+    x: 239
+    y: 73
     width: 1321
     height: 650
   m_ViewDataDictionary: {fileID: 0}
@@ -482,9 +482,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 3.7142704, y: 3.7449706, z: -9.267599}
+    m_Target: {x: 204.53772, y: 46.639423, z: -57.256935}
     speed: 2
-    m_Value: {x: 3.7142704, y: 3.7449706, z: -9.267599}
+    m_Value: {x: 204.53772, y: 46.639423, z: -57.256935}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -530,13 +530,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.02629923, y: 0.08536665, z: -0.0022541475, w: 0.99600285}
+    m_Target: {x: -0.03092519, y: 0.93958986, z: -0.088518895, w: -0.32941917}
     speed: 2
-    m_Value: {x: 0.026299156, y: 0.085366406, z: -0.002254141, w: 0.996}
+    m_Value: {x: -0.030790253, y: 0.940018, z: -0.088559076, w: -0.32798678}
   m_Size:
     m_Target: 46.47796
     speed: 2
-    m_Value: 46.47796
+    m_Value: 2350.4053
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -608,8 +608,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: -32000
-    y: -31299
+    x: 0
+    y: 744
     width: 1561
     height: 255
   m_ViewDataDictionary: {fileID: 0}
@@ -626,20 +626,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Materials
+    - Assets/Scenes
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Materials
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Erik\3D Bonk
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 57}
-    m_SelectedIDs: 6c3c0000
-    m_LastClickedID: 15468
-    m_ExpandedIDs: 00000000f63b0000f83b0000fa3b0000fc3b0000fe3b0000003c0000023c0000043c000000ca9a3b
+    m_SelectedIDs: 183c0000
+    m_LastClickedID: 15384
+    m_ExpandedIDs: 000000000a3c00000c3c00000e3c0000103c0000123c0000143c0000163c0000183c000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -667,7 +667,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000f63b0000f83b0000fa3b0000fc3b0000fe3b0000003c0000023c0000043c0000
+    m_ExpandedIDs: 000000000a3c00000c3c00000e3c0000103c0000123c0000143c0000163c0000183c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -770,8 +770,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: -30438
-    y: -31970
+    x: 1562
+    y: 73
     width: 357
     height: 926
   m_ViewDataDictionary: {fileID: 0}

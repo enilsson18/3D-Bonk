@@ -477,7 +477,7 @@ MonoBehaviour:
   timeUI: {fileID: 5226129032862456889}
   maxAngularVelocity: 60
   speed: 6
-  arialSpeed: 0.05
+  arialSpeed: 0.15
   drag: 0.5
   jumpPower: 200
   wallVerticalJump: 0.7

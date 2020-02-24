@@ -89,9 +89,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13196}
     - Class: 114
-      Script: {instanceID: 13510}
+      Script: {instanceID: 13512}
     - Class: 114
-      Script: {instanceID: 13970}
+      Script: {instanceID: 13972}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -174,27 +174,27 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13216}
     - Class: 114
-      Script: {instanceID: 13510}
+      Script: {instanceID: 13278}
     - Class: 114
-      Script: {instanceID: 13582}
+      Script: {instanceID: 13512}
     - Class: 114
-      Script: {instanceID: 13650}
+      Script: {instanceID: 13584}
     - Class: 114
-      Script: {instanceID: 13830}
+      Script: {instanceID: 13652}
     - Class: 114
-      Script: {instanceID: 13868}
+      Script: {instanceID: 13832}
     - Class: 114
-      Script: {instanceID: 13970}
+      Script: {instanceID: 13870}
     - Class: 114
-      Script: {instanceID: 14024}
+      Script: {instanceID: 13972}
     - Class: 114
-      Script: {instanceID: 14040}
+      Script: {instanceID: 14026}
     - Class: 114
-      Script: {instanceID: 14148}
+      Script: {instanceID: 14042}
     - Class: 114
-      Script: {instanceID: 17182}
+      Script: {instanceID: 14150}
     - Class: 114
-      Script: {instanceID: 21840}
+      Script: {instanceID: 29978}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -902,6 +902,12 @@ ScriptsOnlyBuild:
     className: TimeoutAuthenticator
   - hash:
       serializedVersion: 2
+      Hash: cf9629c79efd3deebc609c9132175e02
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EasterEggSkin
+  - hash:
+      serializedVersion: 2
       Hash: c1933cc0a2f4ff6eb13333347497beb3
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -1206,12 +1212,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: cf9629c79efd3deebc609c9132175e02
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: EasterEggSkin
   platform: 19
   scenePathNames:
   - Assets/Scenes/Testing/Testing.unity
