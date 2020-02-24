@@ -2,6 +2,7 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - CheckPoint
+    - EasterEggSkin
     - End
     - KillBox
     - NetworkPlayerSetup
@@ -191,7 +192,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14148}
     - Class: 114
-      Script: {instanceID: 32848}
+      Script: {instanceID: 17182}
+    - Class: 114
+      Script: {instanceID: 21840}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1203,6 +1206,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: cf9629c79efd3deebc609c9132175e02
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EasterEggSkin
   platform: 19
   scenePathNames:
   - Assets/Scenes/Testing/Testing.unity

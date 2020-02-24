@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\code\CheckPoint.cs" />
+    <Compile Include="Assets\code\EasterEggSkin.cs" />
     <Compile Include="Assets\code\End.cs" />
     <Compile Include="Assets\code\KillBox.cs" />
     <Compile Include="Assets\code\NetworkPlayerSetup.cs" />
