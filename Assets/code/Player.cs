@@ -122,7 +122,7 @@ public class Player : MonoBehaviour
             Cursor.visible = true;
         }
 
-        if (Cursor.lockState == CursorLockMode.None && Input.GetMouseButtonDown(0))
+        if (Cursor.lockState == CursorLockMode.None && Input.GetMouseButtonDown(0) && Input.GetMouseButtonDown(1))
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
@@ -194,24 +194,32 @@ public class Player : MonoBehaviour
 
     private void updateCamera()
     {
-        Vector3 offsetX = offset;
-        Vector3 offsetY = offset;
+        Quaternion camTurnAngleX = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * mouseSpeed, Vector3.up);
+        Quaternion camTurnAngleY = Quaternion.AngleAxis(Input.GetAxis("Mouse Y") * -mouseSpeed, Vector3.right);
 
         //camera stuff
         if (rotateAroundPlayer && Cursor.lockState == CursorLockMode.Locked)
         {
+            //camTurnAngleX.y = camTurnAngleX.normalized.y;
+            offset = camTurnAngleX * offset;
+            camera.transform.position = Vector3.Slerp(camera.transform.position, rb.transform.position + offset, smoothFactor);
+            //camTurnAngleY.x = 0;
+            //camTurnAngleY.z = 0;
+            //offset = camTurnAngleY * offset;
+            //camera.transform.position = Vector3.Slerp(camera.transform.position, rb.transform.position + offset, smoothFactor);
 
-            Quaternion camTurnAngleX = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * mouseSpeed, Vector3.up);
-            //Quaternion camTurnAngleY = Quaternion.AngleAxis(Input.GetAxis("Mouse Y") * -mouseSpeed, Vector3.right);
             //Quaternion temp = camTurnAngleX * camTurnAngleY;
             //temp.Normalize();
 
-            offset = camTurnAngleX * offset;
+
             //offsetY = camTurnAngleY * offset;
+        } else
+        {
+            camera.transform.position = Vector3.Slerp(camera.transform.position, rb.transform.position + offset, smoothFactor);
+
         }
 
-        //pastPosition = camera.transform.position;
-        camera.transform.position = Vector3.Slerp(camera.transform.position, rb.transform.position + offset, smoothFactor);
+
 
         RaycastHit hit;
         if (Physics.Raycast(transform.position, -(rb.transform.position - camera.transform.position).normalized, out hit, col.bounds.size.y / 2 + Vector3.Distance(rb.transform.position, camera.transform.position)))
