@@ -22,7 +22,6 @@ ScriptsOnlyBuild:
     - ProBuilder2.Common.pb_ElementGraphics
     - ProBuilder2.Common.pb_MeshRenderer
     - ProBuilder2.Common.pb_PreferenceDictionary
-    - ProBuilder2.Common.pb_Renderable
     - pb_Entity
     - pb_Object
     ProBuilderEditor-Unity5.dll:
@@ -61,8 +60,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 4
       Script: {instanceID: 0}
-    - Class: 20
-      Script: {instanceID: 0}
     - Class: 21
       Script: {instanceID: 0}
     - Class: 23
@@ -75,13 +72,9 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
-    - Class: 54
-      Script: {instanceID: 0}
     - Class: 64
       Script: {instanceID: 0}
     - Class: 65
-      Script: {instanceID: 0}
-    - Class: 81
       Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
@@ -90,42 +83,28 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11288}
-    - Class: 114
-      Script: {instanceID: 11602}
-    - Class: 114
-      Script: {instanceID: 11754}
-    - Class: 114
       Script: {instanceID: 12114}
     - Class: 114
-      Script: {instanceID: 12666}
-    - Class: 114
       Script: {instanceID: 12704}
+    - Class: 114
+      Script: {instanceID: 12762}
+    - Class: 114
+      Script: {instanceID: 12866}
     - Class: 114
       Script: {instanceID: 13196}
     - Class: 114
       Script: {instanceID: 13512}
     - Class: 114
-      Script: {instanceID: 13584}
-    - Class: 114
       Script: {instanceID: 13972}
-    - Class: 114
-      Script: {instanceID: 14042}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
-      Script: {instanceID: 0}
-    - Class: 134
-      Script: {instanceID: 0}
-    - Class: 135
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
       Script: {instanceID: 0}
     - Class: 222
-      Script: {instanceID: 0}
-    - Class: 223
       Script: {instanceID: 0}
     - Class: 224
       Script: {instanceID: 0}
@@ -219,7 +198,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14150}
     - Class: 114
-      Script: {instanceID: 23152}
+      Script: {instanceID: 21258}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
