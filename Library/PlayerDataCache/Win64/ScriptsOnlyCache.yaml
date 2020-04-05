@@ -6,6 +6,7 @@ ScriptsOnlyBuild:
     - End
     - KillBox
     - NetworkPlayerSetup
+    - NetworkSetup
     - Player
     - Start
     - Teleport
@@ -198,7 +199,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14150}
     - Class: 114
-      Script: {instanceID: 21258}
+      Script: {instanceID: 22364}
+    - Class: 114
+      Script: {instanceID: 28740}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -306,7 +309,7 @@ ScriptsOnlyBuild:
     className: ActivationTrack
   - hash:
       serializedVersion: 2
-      Hash: 8eb11f41c8ff401e699b7cf075ef1775
+      Hash: 1c64d72d977bc6cbd880528ac9337a8b
     assemblyName: Mirror.dll
     namespaceName: Mirror
     className: NetworkManager
@@ -582,7 +585,7 @@ ScriptsOnlyBuild:
     className: ZoneHandler
   - hash:
       serializedVersion: 2
-      Hash: 2ff63c6dc445e346b82540e6c29d6027
+      Hash: e36709809298bae5b8e041c8dcbda024
     assemblyName: Mirror.Components.dll
     namespaceName: Mirror
     className: NetworkRoomManager
@@ -804,7 +807,7 @@ ScriptsOnlyBuild:
     className: NetworkAnimator
   - hash:
       serializedVersion: 2
-      Hash: 09b1216d771078ece018c6a281bb137c
+      Hash: c820f405e2d19503f1a28586dd67898b
     assemblyName: Mirror.Examples.dll
     namespaceName: Mirror.Examples.Chat
     className: ChatNetworkManager
@@ -834,7 +837,7 @@ ScriptsOnlyBuild:
     className: NetworkRoomPlayer
   - hash:
       serializedVersion: 2
-      Hash: 603c8b8304cc29c03b2725254a87efa8
+      Hash: 5284dc3c179b180159e01d4daa4a956d
     assemblyName: Mirror.Examples.dll
     namespaceName: Mirror.Examples.Additive
     className: AdditiveNetworkManager
@@ -918,7 +921,7 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
-      Hash: 439093cf702544bde01983000fdfdc56
+      Hash: 4bbd1e9a2162b7ff52ffcc90aa74e535
     assemblyName: Mirror.Examples.dll
     namespaceName: Mirror.Examples.Pong
     className: NetworkManagerPong
@@ -960,7 +963,7 @@ ScriptsOnlyBuild:
     className: Start
   - hash:
       serializedVersion: 2
-      Hash: 2ff63c6dc445e346b82540e6c29d6027
+      Hash: e36709809298bae5b8e041c8dcbda024
     assemblyName: Mirror.Examples.dll
     namespaceName: Mirror.Examples.NetworkRoom
     className: NetworkRoomManagerExt
@@ -1020,7 +1023,7 @@ ScriptsOnlyBuild:
     className: NetworkDiscoveryHUD
   - hash:
       serializedVersion: 2
-      Hash: 2ff63c6dc445e346b82540e6c29d6027
+      Hash: e36709809298bae5b8e041c8dcbda024
     assemblyName: Mirror.Components.dll
     namespaceName: Mirror
     className: NetworkLobbyManager
@@ -1056,7 +1059,7 @@ ScriptsOnlyBuild:
     className: TMP_StyleSheet
   - hash:
       serializedVersion: 2
-      Hash: 69dd9b2691050df58dfd6d6ff740a127
+      Hash: 2bca67b5b15bd74f4ed58264903bca65
     assemblyName: Mirror.Components.dll
     namespaceName: Mirror
     className: NetworkTransform
@@ -1104,7 +1107,7 @@ ScriptsOnlyBuild:
     className: BaseInput
   - hash:
       serializedVersion: 2
-      Hash: 77abbf653e724335043aa9ca899defe4
+      Hash: 216c4bcd126c22b93d86c49174ecd34d
     assemblyName: Mirror.Components.dll
     namespaceName: Mirror
     className: NetworkTransformChild
@@ -1216,6 +1219,18 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: f5d81415668925c17204a6ff6bf33858
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples
+    className: Health
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: NetworkSetup
   platform: 19
   scenePathNames:
   - Assets/Scenes/Testing/Testing.unity
