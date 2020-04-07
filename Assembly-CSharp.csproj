@@ -70,6 +70,7 @@
     <Compile Include="Assets\code\NetworkPlayerSetup.cs" />
     <Compile Include="Assets\code\NetworkSetup.cs" />
     <Compile Include="Assets\code\Player.cs" />
+    <Compile Include="Assets\code\SetSpawnOnLoad.cs" />
     <Compile Include="Assets\code\Start.cs" />
     <Compile Include="Assets\code\Teleport.cs" />
     <Compile Include="Assets\code\ThirdPersonCamera.cs" />

@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 5039796153301099390}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -164,7 +164,6 @@ MonoBehaviour:
   localPositionSensitivity: 0.01
   localRotationSensitivity: 0.01
   localScaleSensitivity: 0.01
-  compressRotation: 1
 --- !u!114 &5905602185578987068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,7 +182,6 @@ MonoBehaviour:
   localPositionSensitivity: 0.01
   localRotationSensitivity: 0.01
   localScaleSensitivity: 0.01
-  compressRotation: 1
   target: {fileID: 5226129034122953314}
 --- !u!114 &1991381188742422206
 MonoBehaviour:
@@ -203,7 +201,6 @@ MonoBehaviour:
   localPositionSensitivity: 0.01
   localRotationSensitivity: 0.01
   localScaleSensitivity: 0.01
-  compressRotation: 1
   target: {fileID: 5226129033584309031}
 --- !u!114 &5039796153301099390
 MonoBehaviour:
@@ -364,7 +361,7 @@ GameObject:
   - component: {fileID: 5226129034122953313}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Player
+  m_TagString: PlayerBody
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
@@ -126,6 +127,12 @@ public class Player : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+        }
+        
+        //debug shit
+        if (Input.GetKey(KeyCode.P))
+        {
+            print(SceneManager.GetActiveScene().name);
         }
 
         //respawn

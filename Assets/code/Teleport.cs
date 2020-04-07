@@ -44,11 +44,6 @@ public class Teleport : MonoBehaviour
 
             //GameObject.Destroy(GameObject.Find(sceneToLoad.name));
             //collider.gameObject.GetComponent<Player>().setRespawn(GameObject.Find("Map").transform.Find("Start").transform.Find("Respawn Point").transform.position);
-            collider.gameObject.transform.position = Vector3.zero + Vector3.up * 2;
-            //collider.gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
-            collider.gameObject.GetComponent<Player>().setRespawn(collider.gameObject.transform.position);
-            collider.gameObject.GetComponent<Player>().respawn();
-            //UIRootObject.transform.rotation = Quaternion.zero;
         }
     }
 
