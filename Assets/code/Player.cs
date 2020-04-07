@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     public Rigidbody rb;
     public Camera camera;
     public PhysicMaterial noBounce;
-    private Collider col;
+    private SphereCollider col;
     private Collider cameraCollider;
     private Vector3 fNormal;
 
@@ -49,6 +49,9 @@ public class Player : MonoBehaviour
     private Vector3 cameraPosition;
     private Vector3 pastPosition;
     private float distToGround;
+
+    //particles
+    private ParticleSystem skid;
 
     //networking varaibles
     public bool multiplayer = true;
@@ -267,13 +270,26 @@ public class Player : MonoBehaviour
         }
     }
 
+    void updateParticles()
+    {
+        Vector3 vTan = rb.angularVelocity * col.radius / 2;
+        vTan = new Vector3(Math.Abs(vTan.z), Math.Abs(vTan.y), Math.Abs(vTan.x));
+        Vector3 v = new Vector3(Math.Abs(rb.velocity.x), Math.Abs(rb.velocity.y), Math.Abs(rb.velocity.z));
+
+        if (v != vTan)
+        {
+            print("drifting" + " velocity: " + rb.velocity + " difference" + rb.angularVelocity * col.radius / 2);
+        }
+        
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
 
         rb = GetComponent<Rigidbody>();
-        col = GetComponent<Collider>();
+        col = GetComponent<SphereCollider>();
         cameraCollider = camera.GetComponent<Collider>();
         offset = camera.transform.position - rb.transform.position;
         jumpTimer = 0;
@@ -281,6 +297,10 @@ public class Player : MonoBehaviour
         currentPhysicsMat = col.material;
         rb.maxAngularVelocity = maxAngularVelocity;
         respawnTransform = rb.position;
+
+        //make sure particles do not play
+        skid = GameObject.Find("Skid").GetComponent<ParticleSystem>();
+        skid.Stop();
     }
 
     //main method
@@ -295,6 +315,8 @@ public class Player : MonoBehaviour
             updateKeys();
 
             updateRoll();
+
+            //updateParticles();
         }
     }
 
