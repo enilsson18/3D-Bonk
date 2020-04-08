@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
     private float distToGround;
 
     //particles
-    private ParticleSystem skid;
+    private GameObject Skid;
 
     //networking varaibles
     public bool multiplayer = true;
@@ -272,15 +272,44 @@ public class Player : MonoBehaviour
 
     void updateParticles()
     {
+        //sense skidding
+        //transform to tangent velocity
         Vector3 vTan = rb.angularVelocity * col.radius / 2;
-        vTan = new Vector3(Math.Abs(vTan.z), Math.Abs(vTan.y), Math.Abs(vTan.x));
-        Vector3 v = new Vector3(Math.Abs(rb.velocity.x), Math.Abs(rb.velocity.y), Math.Abs(rb.velocity.z));
+        //flip x and z and make x negative to fix wierd alignment but of rotation and translational velocity
+        vTan = new Vector3(-vTan.z, vTan.y, vTan.x);
 
-        if (v != vTan)
+        //get the amount of difference between speeds
+        Vector3 vDiff = rb.velocity - vTan;
+
+        float tolerance = 0.02f;
+
+        //account for tolerance of micro skidding
+        //if touching the ground set the position of the skid particle to the contact between the ball and the groung for the spark effect
+        if (((vDiff.x > tolerance) || (vDiff.y > tolerance) || (vDiff.z > tolerance)) && IsGrounded())
         {
-            print("drifting" + " velocity: " + rb.velocity + " difference" + rb.angularVelocity * col.radius / 2);
+            //print("drifting" + " trans velocity: " + rb.velocity + " tangent velocity: " + vTan);
+
+            GameObject skid = Instantiate(Skid);
+
+            //set amount of particles
+            //skid.emissionRate = skid.emissionRate * vDiff.magnitude + 30;
+
+            //set position
+            Physics.Raycast(transform.position, -fNormal, col.bounds.size.y / 2 + 0.1f);
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, -fNormal, out hit, col.bounds.size.y / 2 + 0.1f))
+            {
+                skid.transform.position = hit.point;
+            }
+
+            //set the skid particle effect rotation
+            //vDiff = vDiff / (col.radius / 2);
+            skid.transform.rotation = Quaternion.LookRotation(vDiff, Vector3.up);
+
+            skid.GetComponent<ParticleSystem>().Play();
+            Destroy(skid, skid.GetComponent<ParticleSystem>().startLifetime);
+            print(skid.GetComponent<ParticleSystem>().startLifetime);
         }
-        
     }
 
     // Start is called before the first frame update
@@ -299,8 +328,8 @@ public class Player : MonoBehaviour
         respawnTransform = rb.position;
 
         //make sure particles do not play
-        skid = GameObject.Find("Skid").GetComponent<ParticleSystem>();
-        skid.Stop();
+        Skid = GameObject.Find("Skid");
+        Skid.GetComponent<ParticleSystem>().Stop();
     }
 
     //main method
@@ -316,7 +345,7 @@ public class Player : MonoBehaviour
 
             updateRoll();
 
-            //updateParticles();
+            updateParticles();
         }
     }
 

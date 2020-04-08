@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0
-  syncInterval: 0.1
+  syncInterval: 2
   clientAuthority: 1
   localPositionSensitivity: 0.01
   localRotationSensitivity: 0.01
@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0
-  syncInterval: 0.1
+  syncInterval: 2
   clientAuthority: 1
   localPositionSensitivity: 0.01
   localRotationSensitivity: 0.01
@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0
-  syncInterval: 0.1
+  syncInterval: 1
   clientAuthority: 1
   localPositionSensitivity: 0.01
   localRotationSensitivity: 0.01
@@ -679,12 +679,17 @@ PrefabInstance:
     - target: {fileID: 2993011748225468878, guid: 527c59a7324fd324f8f9321b63786c75,
         type: 3}
       propertyPath: CollisionModule.enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2993011748225468878, guid: 527c59a7324fd324f8f9321b63786c75,
         type: 3}
       propertyPath: looping
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2993011748225468878, guid: 527c59a7324fd324f8f9321b63786c75,
+        type: 3}
+      propertyPath: ShapeModule.angle
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7271571094174950721, guid: 527c59a7324fd324f8f9321b63786c75,
         type: 3}
