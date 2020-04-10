@@ -87,19 +87,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12116}
     - Class: 114
-      Script: {instanceID: 12708}
+      Script: {instanceID: 12710}
     - Class: 114
-      Script: {instanceID: 12768}
+      Script: {instanceID: 12770}
     - Class: 114
-      Script: {instanceID: 12872}
+      Script: {instanceID: 12874}
     - Class: 114
-      Script: {instanceID: 12890}
+      Script: {instanceID: 12892}
     - Class: 114
-      Script: {instanceID: 13206}
+      Script: {instanceID: 13208}
     - Class: 114
-      Script: {instanceID: 13524}
+      Script: {instanceID: 13528}
     - Class: 114
-      Script: {instanceID: 13990}
+      Script: {instanceID: 13994}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -170,41 +170,41 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12290}
     - Class: 114
-      Script: {instanceID: 12670}
+      Script: {instanceID: 12672}
     - Class: 114
-      Script: {instanceID: 12708}
+      Script: {instanceID: 12710}
     - Class: 114
-      Script: {instanceID: 12768}
+      Script: {instanceID: 12770}
     - Class: 114
-      Script: {instanceID: 12872}
+      Script: {instanceID: 12874}
     - Class: 114
-      Script: {instanceID: 13206}
+      Script: {instanceID: 13208}
     - Class: 114
-      Script: {instanceID: 13226}
+      Script: {instanceID: 13228}
     - Class: 114
-      Script: {instanceID: 13288}
+      Script: {instanceID: 13290}
     - Class: 114
-      Script: {instanceID: 13524}
+      Script: {instanceID: 13528}
     - Class: 114
-      Script: {instanceID: 13596}
+      Script: {instanceID: 13600}
     - Class: 114
-      Script: {instanceID: 13666}
+      Script: {instanceID: 13670}
     - Class: 114
-      Script: {instanceID: 13848}
+      Script: {instanceID: 13852}
     - Class: 114
-      Script: {instanceID: 13886}
-    - Class: 114
-      Script: {instanceID: 13986}
+      Script: {instanceID: 13890}
     - Class: 114
       Script: {instanceID: 13990}
     - Class: 114
-      Script: {instanceID: 14044}
+      Script: {instanceID: 13994}
     - Class: 114
-      Script: {instanceID: 14060}
+      Script: {instanceID: 14048}
     - Class: 114
-      Script: {instanceID: 14170}
+      Script: {instanceID: 14064}
     - Class: 114
-      Script: {instanceID: 22332}
+      Script: {instanceID: 14174}
+    - Class: 114
+      Script: {instanceID: 25574}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -610,6 +610,12 @@ ScriptsOnlyBuild:
     className: NetworkLobbyManager
   - hash:
       serializedVersion: 2
+      Hash: 44c33603954ffb86f20d4da61eaf9522
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerFixed
+  - hash:
+      serializedVersion: 2
       Hash: 5887ef1bc706b22b773d253fd443ceef
     assemblyName: com.unity.multiplayer-hlapi.Runtime.dll
     namespaceName: UnityEngine.Networking
@@ -928,6 +934,12 @@ ScriptsOnlyBuild:
     className: EasterEggSkin
   - hash:
       serializedVersion: 2
+      Hash: c814254e840d0499c38e4d77ec7f2428
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: NetworkHandler
+  - hash:
+      serializedVersion: 2
       Hash: c1933cc0a2f4ff6eb13333347497beb3
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -1244,18 +1256,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: c814254e840d0499c38e4d77ec7f2428
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: NetworkHandler
-  - hash:
-      serializedVersion: 2
-      Hash: 44c33603954ffb86f20d4da61eaf9522
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: PlayerFixed
   platform: 19
   scenePathNames:
   - Assets/Scenes/Testing/Testing.unity

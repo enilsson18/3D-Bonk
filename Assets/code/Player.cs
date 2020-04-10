@@ -346,7 +346,7 @@ public class Player : MonoBehaviour
 
             updateRoll();
 
-            updateParticles();
+            //updateParticles();
         }
     }
 
