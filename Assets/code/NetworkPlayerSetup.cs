@@ -6,19 +6,21 @@ using Mirror;
 public class NetworkPlayerSetup : NetworkBehaviour
 {
     public GameObject player;
+    public Player ply;
 
     // Start is called before the first frame update
     void Start()
     {
         DontDestroyOnLoad(gameObject);
-
-        if (!isLocalPlayer)
+        ply = player.GetComponent<Player>();
+        ply.GetComponent<Rigidbody>().isKinematic = !base.hasAuthority;
+        if (isLocalPlayer)
         {
 
-            player.GetComponent<Player>().setup(false);
+            ply.setup(true);
         } else
         {
-            player.GetComponent<Player>().setup(true);
+            ply.setup(false);
         }
     }
 

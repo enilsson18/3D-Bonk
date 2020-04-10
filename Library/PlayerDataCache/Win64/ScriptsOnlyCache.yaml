@@ -204,7 +204,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14170}
     - Class: 114
-      Script: {instanceID: 23904}
+      Script: {instanceID: 22332}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -532,7 +532,7 @@ ScriptsOnlyBuild:
     className: Shadow
   - hash:
       serializedVersion: 2
-      Hash: 97c227938fb64b576242be4eab3ba8a9
+      Hash: ca95fecc64eb15cd1def9f6956d709e2
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: NetworkPlayerSetup
@@ -1244,6 +1244,18 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: c814254e840d0499c38e4d77ec7f2428
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: NetworkHandler
+  - hash:
+      serializedVersion: 2
+      Hash: 44c33603954ffb86f20d4da61eaf9522
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerFixed
   platform: 19
   scenePathNames:
   - Assets/Scenes/Testing/Testing.unity

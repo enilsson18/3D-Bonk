@@ -67,9 +67,11 @@
     <Compile Include="Assets\code\End.cs" />
     <Compile Include="Assets\code\IPManager.cs" />
     <Compile Include="Assets\code\KillBox.cs" />
+    <Compile Include="Assets\code\NetworkHandler.cs" />
     <Compile Include="Assets\code\NetworkPlayerSetup.cs" />
     <Compile Include="Assets\code\NetworkSetup.cs" />
     <Compile Include="Assets\code\Player.cs" />
+    <Compile Include="Assets\code\PlayerFixed.cs" />
     <Compile Include="Assets\code\SetSpawnOnLoad.cs" />
     <Compile Include="Assets\code\Start.cs" />
     <Compile Include="Assets\code\Teleport.cs" />
