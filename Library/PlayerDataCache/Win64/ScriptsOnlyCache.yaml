@@ -9,6 +9,7 @@ ScriptsOnlyBuild:
     - NetworkSetup
     - Player
     - SetSpawnOnLoad
+    - Spawn
     - Start
     - Teleport
     - ThirdPersonCamera
@@ -85,21 +86,23 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 12116}
+      Script: {instanceID: 12202}
     - Class: 114
-      Script: {instanceID: 12710}
+      Script: {instanceID: 12798}
     - Class: 114
-      Script: {instanceID: 12770}
+      Script: {instanceID: 12858}
     - Class: 114
-      Script: {instanceID: 12874}
+      Script: {instanceID: 12962}
     - Class: 114
-      Script: {instanceID: 12892}
+      Script: {instanceID: 12980}
     - Class: 114
-      Script: {instanceID: 13208}
+      Script: {instanceID: 13296}
     - Class: 114
-      Script: {instanceID: 13528}
+      Script: {instanceID: 13618}
     - Class: 114
-      Script: {instanceID: 13994}
+      Script: {instanceID: 14084}
+    - Class: 114
+      Script: {instanceID: 22842}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -152,59 +155,63 @@ ScriptsOnlyBuild:
     - Class: 109
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11284}
+      Script: {instanceID: 11370}
     - Class: 114
-      Script: {instanceID: 11288}
+      Script: {instanceID: 11374}
     - Class: 114
-      Script: {instanceID: 11372}
+      Script: {instanceID: 11458}
     - Class: 114
-      Script: {instanceID: 11582}
+      Script: {instanceID: 11668}
     - Class: 114
-      Script: {instanceID: 11602}
+      Script: {instanceID: 11688}
     - Class: 114
-      Script: {instanceID: 11754}
+      Script: {instanceID: 11840}
     - Class: 114
-      Script: {instanceID: 12164}
+      Script: {instanceID: 12250}
     - Class: 114
-      Script: {instanceID: 12254}
+      Script: {instanceID: 12340}
     - Class: 114
-      Script: {instanceID: 12290}
+      Script: {instanceID: 12376}
     - Class: 114
-      Script: {instanceID: 12672}
+      Script: {instanceID: 12760}
     - Class: 114
-      Script: {instanceID: 12710}
+      Script: {instanceID: 12798}
     - Class: 114
-      Script: {instanceID: 12770}
+      Script: {instanceID: 12858}
     - Class: 114
-      Script: {instanceID: 12874}
+      Script: {instanceID: 12962}
     - Class: 114
-      Script: {instanceID: 13208}
+      Script: {instanceID: 12980}
     - Class: 114
-      Script: {instanceID: 13228}
+      Script: {instanceID: 13296}
     - Class: 114
-      Script: {instanceID: 13290}
+      Script: {instanceID: 13316}
     - Class: 114
-      Script: {instanceID: 13528}
+      Script: {instanceID: 13378}
     - Class: 114
-      Script: {instanceID: 13600}
+      Script: {instanceID: 13618}
     - Class: 114
-      Script: {instanceID: 13670}
+      Script: {instanceID: 13690}
     - Class: 114
-      Script: {instanceID: 13852}
+      Script: {instanceID: 13760}
     - Class: 114
-      Script: {instanceID: 13890}
+      Script: {instanceID: 13942}
     - Class: 114
-      Script: {instanceID: 13990}
+      Script: {instanceID: 13980}
     - Class: 114
-      Script: {instanceID: 13994}
+      Script: {instanceID: 14080}
     - Class: 114
-      Script: {instanceID: 14048}
+      Script: {instanceID: 14084}
     - Class: 114
-      Script: {instanceID: 14064}
+      Script: {instanceID: 14138}
     - Class: 114
-      Script: {instanceID: 14174}
+      Script: {instanceID: 14154}
     - Class: 114
-      Script: {instanceID: 25574}
+      Script: {instanceID: 14264}
+    - Class: 114
+      Script: {instanceID: 22842}
+    - Class: 114
+      Script: {instanceID: 26018}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1256,6 +1263,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: cd43bdb1400d5cef2a91420edeadb074
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Spawn
   platform: 19
   scenePathNames:
   - Assets/Scenes/Testing/Testing.unity

@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     private SphereCollider col;
     private Collider cameraCollider;
     private Vector3 fNormal;
+    private GameObject spawn;
 
     //ui stuff
     public Text timeUI;
@@ -32,9 +33,6 @@ public class Player : MonoBehaviour
     public float smoothFactor = 0.5f;
     [Range(0f, 10.0f)]
     public float mouseSpeed = 6;
-
-    //respawn stuff
-    private Vector3 respawnTransform;
 
     //timer stop watch stuff
     private float timer;
@@ -103,14 +101,26 @@ public class Player : MonoBehaviour
     //respawn method if the person dies or somtin
     public void respawn()
     {
-        rb.position = respawnTransform;
+        rb.position = spawn.GetComponent<Spawn>().getSpawn();
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
     }
 
-    public void setRespawn(Vector3 newRespawn)
+    public void setRespawn(GameObject newRespawn)
     {
-        respawnTransform = newRespawn;
+        spawn = newRespawn;
+    }
+
+    public void checkSpawn()
+    {
+        GameObject[] s = GameObject.FindGameObjectsWithTag("Spawn");
+        for (int i = 0; i < s.Length; i++)
+        {
+            if (spawn == null && s[i].GetComponent<Spawn>().type == 0)
+            {
+                spawn = s[i];
+            }
+        }
     }
 
     public bool IsGrounded() {
@@ -127,7 +137,7 @@ public class Player : MonoBehaviour
             Cursor.visible = true;
         }
 
-        if (Cursor.lockState == CursorLockMode.None && Input.GetMouseButtonDown(0) && Input.GetMouseButtonDown(1))
+        if (Cursor.lockState == CursorLockMode.None && Input.GetMouseButtonDown(1))
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
@@ -318,6 +328,9 @@ public class Player : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
 
+        spawn = null;
+        checkSpawn();
+
         rb = GetComponent<Rigidbody>();
         col = GetComponent<SphereCollider>();
         cameraCollider = camera.GetComponent<Collider>();
@@ -326,7 +339,6 @@ public class Player : MonoBehaviour
 
         currentPhysicsMat = col.material;
         rb.maxAngularVelocity = maxAngularVelocity;
-        respawnTransform = rb.position;
 
         //make sure particles do not play
         Skid = GameObject.Find("Skid");
@@ -339,6 +351,8 @@ public class Player : MonoBehaviour
     {
         if (!multiplayer || driveEnabled)
         {
+            checkSpawn();
+
             updateTimer();
 
             updateCamera();

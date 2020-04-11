@@ -9,7 +9,7 @@ public class Start : MonoBehaviour
     // Start is called before the first frame update
     private void OnTriggerExit(Collider other)
     {
-        other.GetComponent<Player>().setRespawn(respawn.transform.position);
+        other.GetComponent<Player>().setRespawn(respawn);
         other.GetComponent<Player>().startTimer();
     }
 

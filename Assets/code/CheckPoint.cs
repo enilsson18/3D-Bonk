@@ -9,7 +9,7 @@ public class CheckPoint : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        other.GetComponent<Player>().setRespawn(respawn.transform.position);
+        other.GetComponent<Player>().setRespawn(respawn);
     }
 
     // Start is called before the first frame update

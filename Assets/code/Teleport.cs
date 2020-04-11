@@ -40,10 +40,18 @@ public class Teleport : MonoBehaviour
 
             Scene sceneToLoad = SceneManager.GetSceneByBuildIndex(index);
             SceneManager.LoadScene(index);
+            GameObject[] g = GameObject.FindGameObjectsWithTag("Player");
+            for (int i = 0; i < g.Length; i++)
+            {
+                g[i].GetComponent<Player>().respawn();
+            }
+
+
+
             //SceneManager.MoveGameObjectToScene(UIRootObject, sceneToLoad);
 
-            //GameObject.Destroy(GameObject.Find(sceneToLoad.name));
-            //collider.gameObject.GetComponent<Player>().setRespawn(GameObject.Find("Map").transform.Find("Start").transform.Find("Respawn Point").transform.position);
+                //GameObject.Destroy(GameObject.Find(sceneToLoad.name));
+                //collider.gameObject.GetComponent<Player>().setRespawn(GameObject.Find("Map").transform.Find("Start").transform.Find("Respawn Point").transform.position);
         }
     }
 
