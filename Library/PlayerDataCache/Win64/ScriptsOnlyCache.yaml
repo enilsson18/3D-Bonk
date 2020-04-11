@@ -55,8 +55,6 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Outline
     - UnityEngine.UI.Text
-    com.unity.multiplayer-hlapi.Runtime.dll:
-    - UnityEngine.Networking.NetworkCallbacks
   sceneClasses:
     Assets/Scenes/Level1/Level1.unity:
     - Class: 1
@@ -86,23 +84,23 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 12202}
+      Script: {instanceID: 12118}
     - Class: 114
-      Script: {instanceID: 12798}
+      Script: {instanceID: 12714}
     - Class: 114
-      Script: {instanceID: 12858}
+      Script: {instanceID: 12774}
     - Class: 114
-      Script: {instanceID: 12962}
+      Script: {instanceID: 12878}
     - Class: 114
-      Script: {instanceID: 12980}
+      Script: {instanceID: 12896}
     - Class: 114
-      Script: {instanceID: 13296}
+      Script: {instanceID: 13212}
     - Class: 114
-      Script: {instanceID: 13618}
+      Script: {instanceID: 13534}
     - Class: 114
-      Script: {instanceID: 14084}
+      Script: {instanceID: 13766}
     - Class: 114
-      Script: {instanceID: 22842}
+      Script: {instanceID: 14002}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -155,63 +153,63 @@ ScriptsOnlyBuild:
     - Class: 109
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11370}
+      Script: {instanceID: 11286}
+    - Class: 114
+      Script: {instanceID: 11290}
     - Class: 114
       Script: {instanceID: 11374}
     - Class: 114
-      Script: {instanceID: 11458}
+      Script: {instanceID: 11584}
     - Class: 114
-      Script: {instanceID: 11668}
+      Script: {instanceID: 11604}
     - Class: 114
-      Script: {instanceID: 11688}
+      Script: {instanceID: 11756}
     - Class: 114
-      Script: {instanceID: 11840}
+      Script: {instanceID: 12166}
     - Class: 114
-      Script: {instanceID: 12250}
+      Script: {instanceID: 12256}
     - Class: 114
-      Script: {instanceID: 12340}
+      Script: {instanceID: 12292}
     - Class: 114
-      Script: {instanceID: 12376}
+      Script: {instanceID: 12676}
     - Class: 114
-      Script: {instanceID: 12760}
+      Script: {instanceID: 12714}
     - Class: 114
-      Script: {instanceID: 12798}
+      Script: {instanceID: 12774}
     - Class: 114
-      Script: {instanceID: 12858}
+      Script: {instanceID: 12878}
     - Class: 114
-      Script: {instanceID: 12962}
+      Script: {instanceID: 12896}
     - Class: 114
-      Script: {instanceID: 12980}
+      Script: {instanceID: 13212}
     - Class: 114
-      Script: {instanceID: 13296}
+      Script: {instanceID: 13232}
     - Class: 114
-      Script: {instanceID: 13316}
+      Script: {instanceID: 13294}
     - Class: 114
-      Script: {instanceID: 13378}
+      Script: {instanceID: 13534}
     - Class: 114
-      Script: {instanceID: 13618}
+      Script: {instanceID: 13606}
     - Class: 114
-      Script: {instanceID: 13690}
+      Script: {instanceID: 13676}
     - Class: 114
-      Script: {instanceID: 13760}
+      Script: {instanceID: 13766}
     - Class: 114
-      Script: {instanceID: 13942}
+      Script: {instanceID: 13860}
     - Class: 114
-      Script: {instanceID: 13980}
+      Script: {instanceID: 13898}
     - Class: 114
-      Script: {instanceID: 14080}
+      Script: {instanceID: 13998}
     - Class: 114
-      Script: {instanceID: 14084}
+      Script: {instanceID: 14002}
     - Class: 114
-      Script: {instanceID: 14138}
+      Script: {instanceID: 14056}
     - Class: 114
-      Script: {instanceID: 14154}
+      Script: {instanceID: 14072}
     - Class: 114
-      Script: {instanceID: 14264}
+      Script: {instanceID: 14182}
     - Class: 114
-      Script: {instanceID: 22842}
-    - Class: 114
-      Script: {instanceID: 26018}
+      Script: {instanceID: 16802}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1055,6 +1053,12 @@ ScriptsOnlyBuild:
     className: NetworkDiscoveryHUD
   - hash:
       serializedVersion: 2
+      Hash: cd43bdb1400d5cef2a91420edeadb074
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Spawn
+  - hash:
+      serializedVersion: 2
       Hash: e36709809298bae5b8e041c8dcbda024
     assemblyName: Mirror.Components.dll
     namespaceName: Mirror
@@ -1263,12 +1267,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: cd43bdb1400d5cef2a91420edeadb074
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Spawn
   platform: 19
   scenePathNames:
   - Assets/Scenes/Testing/Testing.unity
