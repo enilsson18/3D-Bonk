@@ -6,7 +6,7 @@ public class Spawn : MonoBehaviour
 {
     //0 is main map spawn
     //1 is checkpoint spawn
-    //2 is race spawn
+    //2 is race start spawn
     //3 is spectator spawn
     public int type;
     public float fieldSpawn = 0;

@@ -218,7 +218,6 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   player: {fileID: 5226129034122953315}
-  ply: {fileID: 0}
 --- !u!1 &5226129033584309024
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,7 +228,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5226129033584309031}
   - component: {fileID: 5226129033584309029}
-  - component: {fileID: 5226129033584309030}
   - component: {fileID: 5226129033584309035}
   - component: {fileID: 5226129033584309028}
   - component: {fileID: 5226129033584309034}
@@ -297,14 +295,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &5226129033584309030
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5226129033584309024}
-  m_Enabled: 1
 --- !u!114 &5226129033584309035
 MonoBehaviour:
   m_ObjectHideFlags: 0

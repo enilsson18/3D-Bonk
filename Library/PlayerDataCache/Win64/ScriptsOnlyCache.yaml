@@ -4,6 +4,7 @@ ScriptsOnlyBuild:
     - CheckPoint
     - EasterEggSkin
     - End
+    - GameHandler
     - KillBox
     - NetworkPlayerSetup
     - NetworkSetup
@@ -55,6 +56,8 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Outline
     - UnityEngine.UI.Text
+    com.unity.multiplayer-hlapi.Runtime.dll:
+    - UnityEngine.Networking.NetworkCallbacks
   sceneClasses:
     Assets/Scenes/Level1/Level1.unity:
     - Class: 1
@@ -98,9 +101,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13534}
     - Class: 114
-      Script: {instanceID: 13766}
+      Script: {instanceID: 13674}
     - Class: 114
-      Script: {instanceID: 14002}
+      Script: {instanceID: 13768}
+    - Class: 114
+      Script: {instanceID: 14004}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -191,25 +196,27 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13606}
     - Class: 114
-      Script: {instanceID: 13676}
+      Script: {instanceID: 13674}
     - Class: 114
-      Script: {instanceID: 13766}
+      Script: {instanceID: 13678}
     - Class: 114
-      Script: {instanceID: 13860}
+      Script: {instanceID: 13768}
     - Class: 114
-      Script: {instanceID: 13898}
+      Script: {instanceID: 13862}
     - Class: 114
-      Script: {instanceID: 13998}
+      Script: {instanceID: 13900}
     - Class: 114
-      Script: {instanceID: 14002}
+      Script: {instanceID: 14000}
     - Class: 114
-      Script: {instanceID: 14056}
+      Script: {instanceID: 14004}
     - Class: 114
-      Script: {instanceID: 14072}
+      Script: {instanceID: 14058}
     - Class: 114
-      Script: {instanceID: 14182}
+      Script: {instanceID: 14074}
     - Class: 114
-      Script: {instanceID: 16802}
+      Script: {instanceID: 14184}
+    - Class: 114
+      Script: {instanceID: 34436}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -537,7 +544,7 @@ ScriptsOnlyBuild:
     className: Shadow
   - hash:
       serializedVersion: 2
-      Hash: ca95fecc64eb15cd1def9f6956d709e2
+      Hash: 97c227938fb64b576242be4eab3ba8a9
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: NetworkPlayerSetup
@@ -1039,6 +1046,12 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.Examples.dll
     namespaceName: Mirror.Examples.ListServer
     className: UIServerStatusSlot
+  - hash:
+      serializedVersion: 2
+      Hash: c73fa9bc63c2638f349f6a1dadd13108
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GameHandler
   - hash:
       serializedVersion: 2
       Hash: cbd6b5ee7294cfde200cfbd322e5a278

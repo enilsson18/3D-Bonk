@@ -6,7 +6,7 @@ using Mirror;
 public class NetworkPlayerSetup : NetworkBehaviour
 {
     public GameObject player;
-    public Player ply;
+    private Player ply;
 
     // Start is called before the first frame update
     void Start()

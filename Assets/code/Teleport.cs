@@ -44,6 +44,7 @@ public class Teleport : MonoBehaviour
             for (int i = 0; i < g.Length; i++)
             {
                 g[i].GetComponent<Player>().respawn();
+                
             }
 
 

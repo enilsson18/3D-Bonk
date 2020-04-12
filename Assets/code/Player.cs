@@ -111,6 +111,11 @@ public class Player : MonoBehaviour
         spawn = newRespawn;
     }
 
+    public GameObject getSpawn()
+    {
+        return spawn;
+    }
+
     public void checkSpawn()
     {
         GameObject[] s = GameObject.FindGameObjectsWithTag("Spawn");
@@ -329,7 +334,6 @@ public class Player : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         spawn = null;
-        checkSpawn();
 
         rb = GetComponent<Rigidbody>();
         col = GetComponent<SphereCollider>();
@@ -351,8 +355,6 @@ public class Player : MonoBehaviour
     {
         if (!multiplayer || driveEnabled)
         {
-            checkSpawn();
-
             updateTimer();
 
             updateCamera();
