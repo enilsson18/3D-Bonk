@@ -26,8 +26,6 @@ ScriptsOnlyBuild:
     - ProBuilder2.Common.pb_ElementGraphics
     - ProBuilder2.Common.pb_MeshRenderer
     - ProBuilder2.Common.pb_PreferenceDictionary
-    - pb_Entity
-    - pb_Object
     ProBuilderEditor-Unity5.dll:
     - ProBuilder2.EditorCommon.pb_Editor
     - ProBuilder2.EditorCommon.pb_EditorToolbar
@@ -87,25 +85,25 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 12118}
+      Script: {instanceID: 16010}
     - Class: 114
-      Script: {instanceID: 12714}
+      Script: {instanceID: 16584}
     - Class: 114
-      Script: {instanceID: 12774}
+      Script: {instanceID: 16644}
     - Class: 114
-      Script: {instanceID: 12878}
+      Script: {instanceID: 16744}
     - Class: 114
-      Script: {instanceID: 12896}
+      Script: {instanceID: 16762}
     - Class: 114
-      Script: {instanceID: 13212}
+      Script: {instanceID: 17064}
     - Class: 114
-      Script: {instanceID: 13534}
+      Script: {instanceID: 17376}
     - Class: 114
-      Script: {instanceID: 13674}
+      Script: {instanceID: 17512}
     - Class: 114
-      Script: {instanceID: 13768}
+      Script: {instanceID: 17604}
     - Class: 114
-      Script: {instanceID: 14004}
+      Script: {instanceID: 17834}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -158,65 +156,65 @@ ScriptsOnlyBuild:
     - Class: 109
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11286}
+      Script: {instanceID: 15196}
     - Class: 114
-      Script: {instanceID: 11290}
+      Script: {instanceID: 15198}
     - Class: 114
-      Script: {instanceID: 11374}
+      Script: {instanceID: 15280}
     - Class: 114
-      Script: {instanceID: 11584}
+      Script: {instanceID: 15486}
     - Class: 114
-      Script: {instanceID: 11604}
+      Script: {instanceID: 15506}
     - Class: 114
-      Script: {instanceID: 11756}
+      Script: {instanceID: 15652}
     - Class: 114
-      Script: {instanceID: 12166}
+      Script: {instanceID: 16056}
     - Class: 114
-      Script: {instanceID: 12256}
+      Script: {instanceID: 16144}
     - Class: 114
-      Script: {instanceID: 12292}
+      Script: {instanceID: 16180}
     - Class: 114
-      Script: {instanceID: 12676}
+      Script: {instanceID: 16546}
     - Class: 114
-      Script: {instanceID: 12714}
+      Script: {instanceID: 16584}
     - Class: 114
-      Script: {instanceID: 12774}
+      Script: {instanceID: 16644}
     - Class: 114
-      Script: {instanceID: 12878}
+      Script: {instanceID: 16744}
     - Class: 114
-      Script: {instanceID: 12896}
+      Script: {instanceID: 16762}
     - Class: 114
-      Script: {instanceID: 13212}
+      Script: {instanceID: 17064}
     - Class: 114
-      Script: {instanceID: 13232}
+      Script: {instanceID: 17082}
     - Class: 114
-      Script: {instanceID: 13294}
+      Script: {instanceID: 17142}
     - Class: 114
-      Script: {instanceID: 13534}
+      Script: {instanceID: 17376}
     - Class: 114
-      Script: {instanceID: 13606}
+      Script: {instanceID: 17446}
     - Class: 114
-      Script: {instanceID: 13674}
+      Script: {instanceID: 17512}
     - Class: 114
-      Script: {instanceID: 13678}
+      Script: {instanceID: 17516}
     - Class: 114
-      Script: {instanceID: 13768}
+      Script: {instanceID: 17604}
     - Class: 114
-      Script: {instanceID: 13862}
+      Script: {instanceID: 17696}
     - Class: 114
-      Script: {instanceID: 13900}
+      Script: {instanceID: 17732}
     - Class: 114
-      Script: {instanceID: 14000}
+      Script: {instanceID: 17830}
     - Class: 114
-      Script: {instanceID: 14004}
+      Script: {instanceID: 17834}
     - Class: 114
-      Script: {instanceID: 14058}
+      Script: {instanceID: 17888}
     - Class: 114
-      Script: {instanceID: 14074}
+      Script: {instanceID: 17904}
     - Class: 114
-      Script: {instanceID: 14184}
+      Script: {instanceID: 18012}
     - Class: 114
-      Script: {instanceID: 34436}
+      Script: {instanceID: 19944}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
