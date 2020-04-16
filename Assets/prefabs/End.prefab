@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 1581183206409487054}
   - component: {fileID: 1581183206409487053}
   - component: {fileID: 1581183206409487048}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: sensor
   m_TagString: Finish
   m_Icon: {fileID: 0}

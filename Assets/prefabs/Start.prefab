@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 520327493574792698}
   - component: {fileID: 520327493574792701}
   - component: {fileID: 520327493574792696}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: sensor
   m_TagString: Start
   m_Icon: {fileID: 0}
@@ -598,6 +598,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Spawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 2680773308876757077, guid: cd04f373cba3902479570a1d06f77b42,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd04f373cba3902479570a1d06f77b42, type: 3}

@@ -438,7 +438,7 @@ GameObject:
   - component: {fileID: 864971389504412251}
   - component: {fileID: 864971389504412252}
   - component: {fileID: 864971389504412243}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: sensor
   m_TagString: Start
   m_Icon: {fileID: 0}

@@ -9,6 +9,8 @@ TagManager:
   - Spawn
   - PlayerBody
   - GameHandler
+  - RaceStart
+  - Sensor
   layers:
   - Default
   - TransparentFX

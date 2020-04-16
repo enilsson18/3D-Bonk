@@ -93,7 +93,7 @@ public class Player : MonoBehaviour
     }
 
     //collision cases
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
         fNormal = collision.contacts[0].normal;
     }
@@ -345,8 +345,8 @@ public class Player : MonoBehaviour
         rb.maxAngularVelocity = maxAngularVelocity;
 
         //make sure particles do not play
-        Skid = GameObject.Find("Skid");
-        Skid.GetComponent<ParticleSystem>().Stop();
+        //Skid = GameObject.Find("Skid");
+        //Skid.GetComponent<ParticleSystem>().Stop();
     }
 
     //main method

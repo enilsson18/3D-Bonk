@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2032840624210369001}
   - component: {fileID: 2032840624210369002}
   - component: {fileID: 7394307429278183398}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Spawn
   m_TagString: Spawn
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7623925773786104959}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CheckPointRacing
   m_TagString: Start
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 7623925775471647118}
   - component: {fileID: 7623925775471647119}
   - component: {fileID: 7623925775471647104}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: sensor
   m_TagString: Start
   m_Icon: {fileID: 0}

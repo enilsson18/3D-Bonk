@@ -88,7 +88,7 @@ public class GameHandler : MonoBehaviour
     //sees if any of the players have an invalid spawn and then fixes it
     public void checkSpawns(GameObject[] players)
     {
-        //mainSpawn = findSpawn(0);
+        mainSpawn = findSpawn(0);
         for (int i = 0; i < players.Length; i++)
         {
             if (players[i].GetComponentInChildren<Player>().getSpawn() == null)
@@ -111,6 +111,7 @@ public class GameHandler : MonoBehaviour
         GameObject[] spawns = GameObject.FindGameObjectsWithTag("Spawn");
 
         //set local player
+        /*
         for (int i = 0; i < players.Length; i++)
         {
             if (players[i].GetComponent<NetworkIdentity>().hasAuthority)
@@ -118,7 +119,7 @@ public class GameHandler : MonoBehaviour
                 localPlayer = players[i];
                 break;
             }
-        }
+        }*/
 
         //set list
         for (int i = 0; i < spawns.Length; i++)
@@ -127,6 +128,7 @@ public class GameHandler : MonoBehaviour
             if (spawns[i].GetComponent<Spawn>().type == 0)
             {
                 mainSpawn = spawns[i];
+                print("mainspawn set");
             }
 
             //checkpoint
