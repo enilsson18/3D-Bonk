@@ -56,6 +56,8 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Outline
     - UnityEngine.UI.Text
+    com.unity.multiplayer-hlapi.Runtime.dll:
+    - UnityEngine.Networking.NetworkCallbacks
   sceneClasses:
     Assets/Scenes/Level1/Level1.unity:
     - Class: 1
@@ -293,7 +295,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14184}
     - Class: 114
-      Script: {instanceID: 17228}
+      Script: {instanceID: 25984}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -483,7 +485,7 @@ ScriptsOnlyBuild:
     className: GridLayoutGroup
   - hash:
       serializedVersion: 2
-      Hash: 44c33603954ffb86f20d4da61eaf9522
+      Hash: 85c6511b60367ecf075d32ab109eed0d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player

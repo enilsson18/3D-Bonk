@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
 
     //ui stuff
     public Text timeUI;
+    private Text lapUI;
+    public int lap;
 
     //variables the player sets
     public float maxAngularVelocity = 30;
@@ -334,7 +336,9 @@ public class Player : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         spawn = null;
+        lap = 0;
 
+        //lapUI = gameObject.transform.FindChild("Canvas").transform.FindChild("Race").gameObject.GetComponent<Text>();
         rb = GetComponent<Rigidbody>();
         col = GetComponent<SphereCollider>();
         cameraCollider = camera.GetComponent<Collider>();
@@ -360,6 +364,12 @@ public class Player : MonoBehaviour
             updateCamera();
             updateKeys();
 
+            /*
+            if (lapUI != null)
+            {
+                lapUI.text = "Lap: " + lap;
+            }
+            */
             updateRoll();
 
             //updateParticles();

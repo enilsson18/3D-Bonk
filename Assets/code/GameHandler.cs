@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using System;
 using Mirror;
 
 
@@ -19,6 +21,8 @@ public class GameHandler : MonoBehaviour
     private List<GameObject> startSpawns;
     private List<GameObject> spectatorSpawns;
 
+    private GameObject raceStart;
+
     //sandbox variables
 
 
@@ -35,6 +39,11 @@ public class GameHandler : MonoBehaviour
 
     float timer;
 
+    //utility
+    public float getTimer()
+    {
+        return (float)Math.Round(timer * 100f) / 100f;
+    }
 
     //setups
     void sandboxSetup(GameObject[] players)
@@ -50,8 +59,15 @@ public class GameHandler : MonoBehaviour
     void raceSetup(GameObject[] players)
     {
         raceStage = 0;
-        timer = 0;
+        timer = 10;
         participants = players;
+        
+        for (int i = 0; i < players.Length; i++)
+        {
+            //players[i].transform.FindChild("Canvas").transform.FindChild("Race").gameObject.SetActive(true);
+        }
+
+        raceStart = GameObject.FindGameObjectWithTag("RaceStart");
     }
 
     //updates
@@ -67,7 +83,29 @@ public class GameHandler : MonoBehaviour
 
     void raceUpdate(GameObject[] players)
     {
+        switch (raceStage)
+        {
+            case 0:
+                timer -= Time.fixedDeltaTime;
+                for(int i = 0; i < players.Length; i++)
+                {
+                    players[i].GetComponent<Player>().lap = 0;
+                }
 
+                //raceStart.GetComponentInChildren<TMPro.TextMeshPro>().text = "" + ((int)Math.Round(timer * 100f) / 100f);
+
+                if (timer <= 0)
+                {
+                    raceStage = 1;
+                }
+                break;
+            case 1:
+                //raceStart.GetComponentInChildren<Text>().text = "Go";
+                break;
+            case 2:
+                
+                break;
+        }
     }
 
     public GameObject findSpawn(int type)
@@ -111,15 +149,15 @@ public class GameHandler : MonoBehaviour
         GameObject[] spawns = GameObject.FindGameObjectsWithTag("Spawn");
 
         //set local player
-        /*
+        
         for (int i = 0; i < players.Length; i++)
         {
-            if (players[i].GetComponent<NetworkIdentity>().hasAuthority)
+            if (players[i].GetComponent<NetworkIdentity>().hasAuthority || players[i].name == "Test Player")
             {
                 localPlayer = players[i];
                 break;
             }
-        }*/
+        }
 
         //set list
         for (int i = 0; i < spawns.Length; i++)
@@ -165,22 +203,22 @@ public class GameHandler : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         players = GameObject.FindGameObjectsWithTag("Player");
         checkSpawns(players);
 
-        if (gameMode == 0)
+        switch (gameMode)
         {
-            sandboxUpdate(players);
-        }
-        else if (gameMode == 1)
-        {
-            levelUpdate(players);
-        }
-        else if (gameMode == 2)
-        {
-            raceUpdate(players);
+            case 0:
+                sandboxUpdate(players);
+                break;
+            case 1:
+                levelUpdate(players);
+                break;
+            case 2:
+                raceUpdate(players);
+                break;
         }
     }
 }
